@@ -1,4 +1,5 @@
 import fields from 'sentry-docs/data/relay_event_pii.json';
+import {T} from 'gt-next';
 
 import styles from './style.module.scss';
 
@@ -28,10 +29,12 @@ export function PiiFields() {
         <PiiField key={field.path} field={field} />
       ))}
       {hasStar && (
-        <dd>
-          * Not an actual field, but represents unstructured data that is not part of the
-          schema.
-        </dd>
+        <T>
+          <dd>
+            * Not an actual field, but represents unstructured data that is not part of the
+            schema.
+          </dd>
+        </T>
       )}
     </ul>
   );

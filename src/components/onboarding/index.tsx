@@ -4,6 +4,7 @@ import {ReactNode, useContext, useEffect, useReducer, useState} from 'react';
 import {QuestionMarkCircledIcon} from '@radix-ui/react-icons';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import {Button, Checkbox, Theme} from '@radix-ui/themes';
+import {msg, useGT, useMessages} from 'gt-next';
 
 import styles from './styles.module.scss';
 
@@ -29,92 +30,67 @@ type OptionId = (typeof OPTION_IDS)[number];
 const optionDetails: Record<
   OptionId,
   {
-    description: ReactNode;
+    description: string;
     name: string;
     deps?: OptionId[];
   }
 > = {
   'error-monitoring': {
-    name: 'Error Monitoring',
-    description: "Let's admit it, we all have errors.",
+    name: msg('Error Monitoring'),
+    description: msg("Let's admit it, we all have errors."),
   },
   logs: {
-    name: 'Logs',
-    description: (
-      <span>
-        Send text-based log information from your applications to Sentry for viewing
-        alongside relevant errors and searching by text-string or individual attributes.
-      </span>
+    name: msg('Logs'),
+    description: msg(
+      'Send text-based log information from your applications to Sentry for viewing alongside relevant errors and searching by text-string or individual attributes.'
     ),
   },
   'session-replay': {
-    name: 'Session Replay',
-    description: (
-      <span>
-        Video-like reproductions of user sessions with debugging context to help you
-        confirm issue impact and troubleshoot faster.
-      </span>
+    name: msg('Session Replay'),
+    description: msg(
+      'Video-like reproductions of user sessions with debugging context to help you confirm issue impact and troubleshoot faster.'
     ),
   },
   performance: {
-    name: 'Tracing',
-    description: (
-      <span>
-        Tracing and automatic performance issue detection across services and context on
-        who is impacted, outliers, regressions, and the root cause of your slowdown.
-      </span>
+    name: msg('Tracing'),
+    description: msg(
+      'Tracing and automatic performance issue detection across services and context on who is impacted, outliers, regressions, and the root cause of your slowdown.'
     ),
   },
   profiling: {
-    name: 'Profiling',
-    description: (
-      <span>
-        <span className={styles.TooltipTitle}>Requires Tracing to be enabled</span>
-        See the exact lines of code causing your performance bottlenecks, for faster
-        troubleshooting and resource optimization.
-      </span>
+    name: msg('Profiling'),
+    description: msg(
+      'Requires Tracing to be enabled. See the exact lines of code causing your performance bottlenecks, for faster troubleshooting and resource optimization.'
     ),
     deps: ['performance'],
   },
   'source-maps': {
-    name: 'Source Maps',
-    description: (
-      <span>
-        Source maps for web applications that help translate minified code back to the
-        original source for better error reporting.
-      </span>
+    name: msg('Source Maps'),
+    description: msg(
+      'Source maps for web applications that help translate minified code back to the original source for better error reporting.'
     ),
   },
   'user-feedback': {
-    name: 'User Feedback',
-    description: (
-      <span>
-        Collect user feedback from anywhere in your application with an embeddable widget
-        that allows users to report bugs and provide insights.
-      </span>
+    name: msg('User Feedback'),
+    description: msg(
+      'Collect user feedback from anywhere in your application with an embeddable widget that allows users to report bugs and provide insights.'
     ),
   },
   'source-context': {
-    name: 'Source Context',
-    description: (
-      <span>
-        Upload your source code to allow Sentry to display snippets of your code next to
-        the event stack traces.
-      </span>
+    name: msg('Source Context'),
+    description: msg(
+      'Upload your source code to allow Sentry to display snippets of your code next to the event stack traces.'
     ),
   },
   dsym: {
-    name: 'dSYM',
-    description: (
-      <span>
-        Debug symbols for iOS and macOS that provide the necessary information to convert
-        program addresses back to function names, source file names, and line numbers.
-      </span>
+    name: msg('dSYM'),
+    description: msg(
+      'Debug symbols for iOS and macOS that provide the necessary information to convert program addresses back to function names, source file names, and line numbers.'
     ),
   },
   opentelemetry: {
-    name: 'OpenTelemetry',
-    description: <span>Combine Sentry with OpenTelemetry.</span>,
+    name: msg('OpenTelemetry'),
+    description: msg('Combine Sentry with OpenTelemetry.'),
   },
 };
 
@@ -318,6 +294,8 @@ export function OnboardingOptionButtons({
   options: (OnboardingOptionType | OptionId)[];
 }) {
   const codeContext = useContext(CodeContext);
+  const m = useMessages();
+  const gt = useGT();
 
   const normalizedOptions = initialOptions
     .map(option => {
@@ -426,7 +404,7 @@ export function OnboardingOptionButtons({
               }}
             />
 
-            {optionDetails[option.id].name}
+            {m(optionDetails[option.id].name)}
             {optionDetails[option.id] && (
               <Tooltip.Provider delayDuration={300}>
                 <Tooltip.Root>
@@ -452,7 +430,7 @@ export function OnboardingOptionButtons({
                     <span
                       role="button"
                       tabIndex={0}
-                      aria-label={`Help: ${optionDetails[option.id].name}`}
+                      aria-label={gt('Help: {name}', {name: m(optionDetails[option.id].name)})}
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -471,7 +449,7 @@ export function OnboardingOptionButtons({
                         align="center"
                         side="top"
                       >
-                        {optionDetails[option.id].description}
+                        {m(optionDetails[option.id].description)}
                         <Tooltip.Arrow className={styles.TooltipArrow} />
                       </Tooltip.Content>
                     </Theme>

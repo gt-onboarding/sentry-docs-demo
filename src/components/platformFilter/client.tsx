@@ -5,6 +5,7 @@ import {TriangleRightIcon} from '@radix-ui/react-icons';
 import classNames from 'classnames';
 import {matchSorter, rankings} from 'match-sorter';
 import Link from 'next/link';
+import {useGT} from 'gt-next';
 
 import {type Platform} from 'sentry-docs/types';
 import {splitToChunks, uniqByReference} from 'sentry-docs/utils';
@@ -48,6 +49,7 @@ const mostViewedPlatforms: {icon: string; key: string; title: string; url: strin
 ];
 
 export function PlatformFilterClient({platforms}: {platforms: Platform[]}) {
+  const gt = useGT();
   const platformsAndGuides = platforms
     .map(p => [
       p,
@@ -94,7 +96,7 @@ export function PlatformFilterClient({platforms}: {platforms: Platform[]}) {
       <div style={{marginBottom: '40px'}}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8 md:items-end">
           <div className="lg:col-span-2 space-y-2">
-            <h2 className="text-2xl font-medium">Most Viewed Sentry SDKs</h2>
+            <h2 className="text-2xl font-medium">{gt('Most Viewed Sentry SDKs')}</h2>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -125,12 +127,12 @@ export function PlatformFilterClient({platforms}: {platforms: Platform[]}) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8 md:items-end">
         <div className="lg:col-span-2 space-y-2">
-          <h2 className="text-2xl font-medium">All SDKs Supported by Sentry</h2>
-          <p className="m-0">If you use it, we probably support it.</p>
+          <h2 className="text-2xl font-medium">{gt('All SDKs Supported by Sentry')}</h2>
+          <p className="m-0">{gt('If you use it, we probably support it.')}</p>
         </div>
         <div className="w-full flex justify-end">
           <input
-            placeholder="Search SDKs"
+            placeholder={gt('Search SDKs')}
             className={`${styles.input}`}
             value={filter}
             onChange={e => setFilter(e.target.value)}
@@ -176,7 +178,7 @@ export function PlatformFilterClient({platforms}: {platforms: Platform[]}) {
         </div>
       )}
       {!matches.length && (
-        <div className="col-span-3 text-center text-gray-600">No SDKs found</div>
+        <div className="col-span-3 text-center text-gray-600">{gt('No SDKs found')}</div>
       )}
     </div>
   );

@@ -13,6 +13,7 @@ import {CaretRightIcon, CaretSortIcon, MagnifyingGlassIcon} from '@radix-ui/reac
 import * as RadixSelect from '@radix-ui/react-select';
 import {matchSorter} from 'match-sorter';
 import {usePathname, useRouter} from 'next/navigation';
+import {useGT} from 'gt-next';
 
 import {PlatformIcon} from 'sentry-docs/components/platformIcon';
 import {Platform, PlatformGuide, PlatformIntegration} from 'sentry-docs/types';
@@ -29,6 +30,7 @@ export function PlatformSelector({
   platforms: Array<Platform>;
   currentPlatform?: Platform | PlatformGuide;
 }) {
+  const gt = useGT();
   // humanize the title for a more natural sorting
   const humanizeTitle = (title: string) =>
     title.replaceAll('.', ' ').replaceAll(/ +/g, ' ').trim();
@@ -153,15 +155,15 @@ export function PlatformSelector({
           includesBaseElement={false}
           setValue={v => startTransition(() => setSearchValue(v))}
         >
-          <RadixSelect.Trigger aria-label="Platform" className={styles.select}>
-            <RadixSelect.Value placeholder="Choose your SDK" />
+          <RadixSelect.Trigger aria-label={gt('Platform')} className={styles.select}>
+            <RadixSelect.Value placeholder={gt('Choose your SDK')} />
             <RadixSelect.Icon className={styles['select-icon']}>
               <CaretSortIcon />
             </RadixSelect.Icon>
           </RadixSelect.Trigger>
           <RadixSelect.Content
             role="dialog"
-            aria-label="Platforms"
+            aria-label={gt('Platforms')}
             position="popper"
             className={styles.popover}
           >
@@ -171,7 +173,7 @@ export function PlatformSelector({
               </div>
               <Combobox
                 autoSelect
-                placeholder="Search platforms"
+                placeholder={gt('Search platforms')}
                 className={styles.combobox}
                 // Ariakit's Combobox manually triggers a blur event on virtually
                 // blurred items, making them work as if they had actual DOM
@@ -246,7 +248,9 @@ export function PlatformSelector({
         <div className="mt-3">
           <SidebarLink
             href={storedPlatform.url}
-            title={`Sentry for ${storedPlatform.title ?? storedPlatform.key}`}
+            title={gt('Sentry for {platform}', {
+              platform: storedPlatform.title ?? storedPlatform.key,
+            })}
             collapsible
             topLevel
           />

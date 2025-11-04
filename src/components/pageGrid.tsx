@@ -1,6 +1,7 @@
 import path from 'path';
 
 import Link from 'next/link';
+import {T, Var} from 'gt-next';
 
 import {DocNode, nodeForPath} from 'sentry-docs/docTree';
 import {serverContext} from 'sentry-docs/serverContext';
@@ -28,7 +29,13 @@ export function PageGrid({header, exclude}: Props) {
 
   return (
     <nav>
-      {header && <h2>{header}</h2>}
+      {header && (
+        <T>
+          <h2>
+            <Var>{header}</Var>
+          </h2>
+        </T>
+      )}
       <ul>
         {sortPages(
           children.filter(

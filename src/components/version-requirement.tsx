@@ -1,4 +1,5 @@
 import {ReactNode} from 'react';
+import {T, Var, Branch, useGT} from 'gt-next';
 
 import {Alert} from './alert';
 
@@ -25,12 +26,15 @@ export function VersionRequirement({
   level = 'warning',
   children,
 }: VersionRequirementProps) {
+  const gt = useGT();
   return (
-    <Alert title="Version requirement" level={level}>
-      <p>
-        {product} requires {sdk} version <code>{minVersion}</code> or newer.
-      </p>
-      {children ? <div className="mt-2">{children}</div> : null}
+    <Alert title={gt('Version requirement')} level={level}>
+      <T>
+        <p>
+          <Var>{product}</Var> requires <Var>{sdk}</Var> version <code><Var>{minVersion}</Var></code> or newer.
+        </p>
+      </T>
+      {children && <div className="mt-2">{children}</div>}
     </Alert>
   );
 }

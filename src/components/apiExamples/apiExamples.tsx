@@ -11,6 +11,7 @@ import styles from './apiExamples.module.scss';
 import {CodeBlock} from '../codeBlock';
 import {CodeTabs} from '../codeTabs';
 import {codeToJsx} from '../highlightCode';
+import {T, useGT} from 'gt-next';
 
 const strFormat = (str: string) => {
   const s = str.trim();
@@ -25,6 +26,7 @@ type Props = {
 };
 
 export function ApiExamples({api}: Props) {
+  const gt = useGT();
   const apiExample = [
     `curl ${api.server}${api.apiPath}`,
     ` -H 'Authorization: Bearer <auth_token>'`,
@@ -51,8 +53,8 @@ export function ApiExamples({api}: Props) {
 
   const [selectedTabView, selectTabView] = useState(0);
   const tabViews = api.responses[selectedResponse].content?.schema
-    ? ['RESPONSE', 'SCHEMA']
-    : ['RESPONSE'];
+    ? [gt('RESPONSE'), gt('SCHEMA')]
+    : [gt('RESPONSE')];
 
   const [showCopied, setShowCopied] = useState(false);
 
@@ -134,7 +136,7 @@ export function ApiExamples({api}: Props) {
             className={codeBlockStyles.copied}
             style={{opacity: showCopied ? 1 : 0}}
           >
-            Copied
+            <T>Copied</T>
           </div>
           {selectedTabView === 0 &&
             (exampleJson ? (

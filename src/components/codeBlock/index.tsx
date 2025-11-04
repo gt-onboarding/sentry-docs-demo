@@ -2,6 +2,7 @@
 
 import {RefObject, useEffect, useRef, useState} from 'react';
 import {Clipboard} from 'react-feather';
+import {T} from 'gt-next';
 
 import {usePlausibleEvent} from 'sentry-docs/hooks/usePlausibleEvent';
 
@@ -117,7 +118,7 @@ export function CodeBlock({filename, language, children}: CodeBlockProps) {
         className={styles.copied}
         style={{opacity: showCopied ? 1 : 0}}
       >
-        Copied
+        <T>Copied</T>
       </div>
       <div ref={codeRef}>
         {makeKeywordsClickable(makeHighlightBlocks(children, language))}

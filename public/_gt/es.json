@@ -1,0 +1,844 @@
+{
+  "0088957c716d4b97": {
+    "c": [
+      "Desde ",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      }
+    ],
+    "i": 1,
+    "t": "h4"
+  },
+  "024ec13c87b2e761": {
+    "c": [
+      "© ",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      },
+      " • Sentry es una marca registrada de Functional Software, Inc."
+    ],
+    "i": 1,
+    "t": "p"
+  },
+  "025268660cde7a9c": {
+    "c": "Sentry proporciona rastreo distribuido de extremo a extremo, permitiendo a los desarrolladores identificar y depurar problemas de rendimiento y errores en sus sistemas y servicios.",
+    "i": 1,
+    "t": "p"
+  },
+  "0336c1c64de40517": "¿Qué te gustó de esta página?",
+  "033cfb954954d331": "C#",
+  "034e71bc2b45f822": "Gracias por tu comentario",
+  "0436342abf417bcc": "Mapas de origen para aplicaciones web que ayudan a traducir código minificado de vuelta al código fuente original para un mejor reporte de errores.",
+  "05ee89185da3b64a": "SDKs de Sentry más vistos",
+  "0611f52a410307cb": "Comienza hoy mismo.",
+  "066dc86ac3842f0a": "Registros",
+  "08fa6a24189a55c5": "Seguridad, Legal y PII",
+  "095fe68547cdd437": "Cómo escribimos código frontend.",
+  "0b5792b85faa1fe9": "Versión",
+  "0b7416f060d36f45": "No 👎",
+  "0d0fd7081d435984": "Cómo puedes ejecutar todo Sentry en tu propio servidor, sin pagar nada.",
+  "0d3edd957f6a8699": "Admitámoslo, todos cometemos errores.",
+  "0df9ff062f15ce20": {
+    "c": [
+      "Nombre de archivo (v",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      },
+      ")"
+    ],
+    "i": 1,
+    "t": "th"
+  },
+  "0e3e59f7185ccebb": "Texto",
+  "0ecbde439bf8ca23": {
+    "c": {
+      "c": "Ayuda a mejorar este contenido",
+      "i": 2,
+      "t": "strong"
+    },
+    "i": 1,
+    "t": "small"
+  },
+  "0f442932c6435aad": {
+    "c": {
+      "i": 2,
+      "k": "_gt_value_2",
+      "v": "v"
+    },
+    "i": 1,
+    "t": "h2"
+  },
+  "11f6d55737a69f98": "¿Te fue útil?",
+  "12aa61b11f6fdb5a": {
+    "c": {
+      "d": {
+        "b": {
+          "one": {
+            "c": [
+              {
+                "i": 4,
+                "k": "_gt_n_4",
+                "v": "n"
+              },
+              " archivo modificado"
+            ],
+            "i": 3,
+            "t": "C3"
+          },
+          "other": {
+            "c": [
+              {
+                "i": 4,
+                "k": "_gt_n_4",
+                "v": "n"
+              },
+              " archivos modificados"
+            ],
+            "i": 3,
+            "t": "C3"
+          }
+        },
+        "t": "p"
+      },
+      "i": 2,
+      "t": "Plural"
+    },
+    "i": 1,
+    "t": "span"
+  },
+  "14abd0f98ab67191": "No, esto no fue útil",
+  "155c351d7fff7655": "Codecov",
+  "15cb6030dae7a203": {
+    "c": "o",
+    "i": 1,
+    "t": "span"
+  },
+  "15d6b55bc8aabdd9": {
+    "c": "Preguntar a la IA",
+    "i": 1,
+    "t": "span"
+  },
+  "1609fd73c661059c": "Terraform",
+  "16292b417916d30d": {
+    "c": [
+      "Esta métrica se emite únicamente cuando Relay se ejecuta como servicio interno de Sentry para la ingesta de eventos (función ",
+      {
+        "c": "processing",
+        "i": 2,
+        "t": "code"
+      },
+      ")."
+    ],
+    "i": 1,
+    "t": "Alert"
+  },
+  "1730ec2deab29c33": "Sentry discord",
+  "1837f8f35dd37367": "Lua",
+  "185746ef1496214d": {
+    "c": "Restablecer pasos",
+    "i": 1,
+    "t": "button"
+  },
+  "18858f704bcae140": "Haz clic para generar el token (NO lo subas al repositorio)",
+  "189644bf689e4c2e": "YAML",
+  "18d144bcd97f0371": "Ocultar",
+  "18d9fb1af46e5236": "Software de monitoreo y depuración de aplicaciones considerado \"no está mal\" por 4 millones de desarrolladores.",
+  "18f209f99ef292fe": "SCHEMA",
+  "197887a3d0eb6a39": "Disponible desde",
+  "19c85b1e4e700c05": "Alternar completado del paso {stepNumber}",
+  "1a848714f55567ed": "Defold",
+  "1d0a9a96ace983f7": "API de Sentry",
+  "1dda9f8987324821": "Comentarios de usuarios",
+  "2028b4e9d54333bd": "Todo sobre nuestra estructura de precios y facturación.",
+  "20ad15df417f9672": {
+    "d": {
+      "b": {
+        "false": "Objeto",
+        "true": {
+          "i": 2,
+          "k": "_gt_value_2",
+          "v": "v"
+        }
+      },
+      "t": "b"
+    },
+    "i": 1,
+    "t": "Branch"
+  },
+  "217a321934b935db": {
+    "c": "Página no encontrada",
+    "i": 1,
+    "t": "h1"
+  },
+  "21dc428ce8249e22": "Imagen de calculadora",
+  "224e5b9a8f61a4bf": "{title}: {keyword}. Haz clic para seleccionar un proyecto diferente.",
+  "23375e8e51bab2b7": {
+    "c": "Habla con nosotros",
+    "i": 1,
+    "t": "h2"
+  },
+  "233c97428f6e8a4e": "https://github.com o https://ghe.example.com",
+  "2416e6e5fb5efe36": "Servidor",
+  "252a312fa52dd15c": {
+    "c": "* No es un campo real, sino que representa datos no estructurados que no forman parte del esquema.",
+    "i": 1,
+    "t": "dd"
+  },
+  "2686d27ee5759dea": {
+    "c": {
+      "c": "Repositorio en GitHub",
+      "i": 2,
+      "t": "SmartLink"
+    },
+    "i": 1,
+    "t": "li"
+  },
+  "268b029b2df31cb8": "Crear aplicación de GitHub",
+  "279f1fd40d65766e": "Sentry Discord",
+  "27bb6e00d62b6fd5": "Código de Conducta",
+  "28a45948473da7f8": "GitHub",
+  "29f04e1eb56884ab": "Contribuir",
+  "2a480610d4c91ee4": "Ver imagen: {alt}",
+  "2aa7a6d9b80d10e5": "Selecciona una organización:",
+  "2c948e54b8f55f5a": {
+    "c": "Solo disponible en el Cliente",
+    "i": 1,
+    "t": "div"
+  },
+  "2ecf88ef9e8e4259": "Inicio",
+  "2f459baf7a2e23ac": {
+    "c": "Solo disponible en el servidor",
+    "i": 1,
+    "t": "div"
+  },
+  "2fc7d2600e8a3e91": "Por favor, ingresa un dominio o URL de GitHub válido",
+  "312f67067797a503": "Buscar plataformas",
+  "33bd625c24e47260": {
+    "c": [
+      "Disponible desde: ",
+      {
+        "c": {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        },
+        "i": 2,
+        "t": "code"
+      }
+    ],
+    "i": 1,
+    "t": "p"
+  },
+  "34a0b9a8ef44973b": "Buscar SDKs",
+  "3504966ae0b11c11": "Crystal",
+  "35d5f128145e1f45": "Copiar página",
+  "364f6c3e2ebebff7": "Variable ENV",
+  "36f01fff58d1e604": "Envía información de registro basada en texto desde tus aplicaciones a Sentry para verla junto con los errores relevantes y buscarla por cadena de texto o atributos individuales.",
+  "3791f3cf45d23ae7": "Solo disponible en",
+  "396e1d8b8a8a6f3f": "Sentry CLI",
+  "39fcbb2f5aba6179": "Contribuir a la Documentación",
+  "3c6984a158a5a8fb": {
+    "c": {
+      "i": 2,
+      "k": "_gt_value_2",
+      "v": "v"
+    },
+    "d": {
+      "b": {
+        "cli": {
+          "c": "en la línea de comandos",
+          "i": 2,
+          "t": "Fragment"
+        },
+        "env": {
+          "c": "en el Entorno del Sistema",
+          "i": 2,
+          "t": "Fragment"
+        },
+        "python": {
+          "c": [
+            "en ",
+            {
+              "c": "sentry.conf.py",
+              "i": 3,
+              "t": "code"
+            }
+          ],
+          "i": 2,
+          "t": "Fragment"
+        },
+        "yaml": {
+          "c": [
+            "en ",
+            {
+              "c": "config.yaml",
+              "i": 3,
+              "t": "code"
+            }
+          ],
+          "i": 2,
+          "t": "Fragment"
+        }
+      },
+      "t": "b"
+    },
+    "i": 1,
+    "t": "Branch"
+  },
+  "3eb8b05f1f4c24df": {
+    "c": "Eliminado:",
+    "i": 1,
+    "t": "span"
+  },
+  "3f138253b1317c72": "Requisito de versión",
+  "3f79d950c6ead943": "Si lo usas, probablemente lo soportamos.",
+  "3fb6e7df1104fc1a": "Alojar Sentry por tu cuenta",
+  "404b8f14eb331d89": "Imagen de papel sellado",
+  "446fc0e1621b7ae8": "Soporte",
+  "44c25af421cfbe6f": "Seguridad, Legal y PII",
+  "44ca2fb46a718d51": "Parámetros de consulta:",
+  "4628077c7067faa3": "Dominio de GitHub",
+  "4723d72da1c6e2b1": "Ejecutándose junto al monolito.",
+  "48de21dffb27aea4": "Registro de cambios",
+  "48f16abab09f20c1": {
+    "c": "Slug de la organización de GitHub",
+    "i": 1,
+    "t": "label"
+  },
+  "4aa40f5bde5417cf": [
+    "Puedes ",
+    {
+      "c": "crear manualmente un Auth Token",
+      "i": 1,
+      "t": "ExternalLink"
+    },
+    " o crear un token directamente desde esta página. Un token creado solo será visible una vez justo después de su creación - ¡asegúrate de copiarlo y pegarlo inmediatamente y NO lo subas al repositorio! Recomendamos agregarlo como una variable de entorno."
+  ],
+  "4b253a5ff9aeed07": "Soporte",
+  "4bca03b431c858e6": {
+    "c": [
+      {
+        "c": "No hay entradas de registro de cambios disponibles",
+        "i": 2,
+        "t": "p"
+      },
+      {
+        "c": "Vuelve más tarde para ver actualizaciones.",
+        "i": 3,
+        "t": "p"
+      }
+    ],
+    "i": 1,
+    "t": "div"
+  },
+  "4bea8807020ec301": "Rastreo y detección automática de problemas de rendimiento entre servicios y contexto sobre quién se ve afectado, valores atípicos, regresiones y la causa raíz de tu ralentización.",
+  "4e183cf10c85fe05": "Documentación para desarrolladores",
+  "5091397cade97f49": "Dominio inválido",
+  "5199d5f781e1271d": {
+    "c": [
+      "Sentry ",
+      {
+        "c": "url-prefix",
+        "i": 2,
+        "t": "code"
+      }
+    ],
+    "i": 1,
+    "t": "label"
+  },
+  "51f31f38a79f6643": "Ayuda: {name}",
+  "51fb5099f0705556": "Ícono de {platform}",
+  "52179353d71e4050": "opciones",
+  "5262c94c2a67c873": "Imagen de terminal",
+  "52adbc863aeb5e59": "Error al copiar",
+  "52ccbf3588ba3024": "JSX",
+  "5378f3b06a2ba540": "ColdFusion",
+  "5486691d285bf8f5": "Recibiendo y procesando datos.",
+  "54a9454d64caeaa4": "Plataforma",
+  "5555d56db0e2284c": "Alojar Sentry por tu cuenta",
+  "5581a1e217b26251": {
+    "c": [
+      "Última versión: ",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      }
+    ],
+    "i": 1,
+    "t": "li"
+  },
+  "56e12032cea891a7": "Pregunta a un bot",
+  "5709ea3fe53f99c7": "Imagen de burbuja de chat",
+  "5845560da4531ff8": "Frontend",
+  "5973d49b78a13b8f": {
+    "c": "Sandbox",
+    "i": 1,
+    "t": "Link"
+  },
+  "59867c5a0a72d1c0": "Clojure (Raven Clj)",
+  "59cf1fd2cff83af2": "Ver como Markdown",
+  "5b158b1ab5e338b0": "Parámetros del Body",
+  "5bdb63979f4de855": "Imagen de concepto y referencias",
+  "5ebb24b86fa9aac9": "Infraestructura de Desarrollo",
+  "5fa4b7652d7aeca8": "PowerShell",
+  "5facaff8479f6a6b": "Conceptos y Referencia",
+  "60b847b2889fbb4c": "Session Replay",
+  "611100f34fc43cea": {
+    "c": "Probemos de nuevo:",
+    "i": 1,
+    "t": "p"
+  },
+  "61d6b0baccab242d": "CoffeeScript",
+  "6201808e78a40607": "Instalación Recomendada:",
+  "63ec1478086d5484": "Comenzar",
+  "64abb2144bde1cb3": "Elige tu SDK",
+  "64c99c6d5805188c": "CTA",
+  "64dd2ca3ab84c74e": "TSX",
+  "660e0823e59a2fc8": "Cliente",
+  "6707421a475dd2d3": {
+    "c": [
+      "Buscar ",
+      {
+        "c": {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        },
+        "i": 2,
+        "t": "em"
+      },
+      " en todos los sitios de Sentry"
+    ],
+    "i": 1,
+    "t": "button"
+  },
+  "67799c2f5695a1b1": "Discord",
+  "678d102f69ad9c72": "Grails",
+  "689ec7c5ae67d59c": "Cloudflare Workers",
+  "68f3995ee3fa541a": "Procesos de seguridad, cumplimiento y limpieza de datos.",
+  "693a0a63379e405a": "Precios y Facturación",
+  "69611e7f5f23f232": [
+    "Puedes ",
+    {
+      "c": "crear manualmente un Token de Autenticación",
+      "i": 1,
+      "t": "ExternalLink"
+    },
+    " o ",
+    {
+      "c": "iniciar sesión",
+      "i": 2,
+      "t": "ExternalLink"
+    },
+    " para crear un token directamente desde esta página."
+  ],
+  "69a6386f7ab88f43": "C++",
+  "69cc33daebf01c2b": "Cómo poner en marcha tu entorno de desarrollo local.",
+  "6a7121cf0dbff282": "Hono",
+  "6a8345e46940f9d1": {
+    "c": "Detalles del Paquete",
+    "i": 1,
+    "t": "h3"
+  },
+  "6be9ba38e1bd6ada": {
+    "c": "Guías relacionadas",
+    "i": 1,
+    "t": "h2"
+  },
+  "6cc608f2f7ed7ca2": "Scrapy",
+  "6cdc3f32f802d98b": "API",
+  "6d808fdc22d36d44": "Reproducciones tipo video de sesiones de usuario con contexto de depuración para ayudarte a confirmar el impacto de problemas y solucionarlos más rápido.",
+  "6dada1e234d5a59f": "Strapi",
+  "72717733fa3e8861": "Sentry para {title}",
+  "72917fcd7df46abb": "RESPUESTA",
+  "73c583cd95c5acf5": "Buscar Documentación",
+  "74e10e966c378336": "Sandbox",
+  "75353ce09ec3bfb8": "Menú",
+  "776f3f4829a64beb": {
+    "c": "Suma de verificación de integridad",
+    "i": 1,
+    "t": "th"
+  },
+  "77cd4adcd4eefe05": "Conectando Sentry a otros productos.",
+  "77d76a0d22e7f8b7": "Mira cómo podemos ayudarte.",
+  "78fbd7e6251396a0": "Rastreo",
+  "79f14a9ad35e8a5d": "Seleccionar región",
+  "7cffcafcfaae5c33": "Configuración de la organización",
+  "7e2be5c37e1c72c8": "Prácticas de Ingeniería",
+  "7e66fe0945220fda": "Comenzar",
+  "7f8cb8174c6d288f": "Siguiente",
+  "7fbe41e29206a133": "PHP",
+  "8042eb18f47511c1": "Copiar página como Markdown para LLMs",
+  "82f34ce5561d359f": {
+    "c": [
+      "Nuestra documentación es de código abierto y está disponible en GitHub. Tus contribuciones son bienvenidas, ya sea corrigiendo un error tipográfico (¡vaya!) o sugiriendo una actualización (\"sí, esto estaría mejor\").",
+      {
+        "c": [
+          {
+            "c": "Cómo contribuir",
+            "i": 3,
+            "t": "Link"
+          },
+          " | ",
+          {
+            "c": "Editar esta página",
+            "i": 4,
+            "t": "Link"
+          },
+          " | ",
+          {
+            "c": "Crear un issue de documentación",
+            "i": 5,
+            "t": "Link"
+          },
+          " | ",
+          {
+            "c": "Obtener soporte",
+            "i": 6,
+            "t": "Link"
+          },
+          " "
+        ],
+        "i": 2,
+        "t": "div"
+      }
+    ],
+    "i": 1,
+    "t": "small"
+  },
+  "831553c2236d6590": {
+    "c": "Bienvenido a Sentry Docs",
+    "i": 1,
+    "t": "h1"
+  },
+  "84b20687683b4a1a": "Mapas de Origen",
+  "84dfa1e62772f6e8": [
+    "Estás en la versión ",
+    {
+      "i": 1,
+      "k": "_gt_value_1",
+      "v": "v"
+    },
+    " de nuestra documentación del SDK. ¿Quieres ir a la última versión?"
+  ],
+  "84f1f772a8f984d7": "Seguridad, Legal y PII",
+  "86d287aa1993a091": "Cerrar",
+  "882c45a3c387d0ca": {
+    "c": "No pudimos encontrar la página que buscabas :(",
+    "i": 1,
+    "t": "p"
+  },
+  "8854a34ab59e4832": "Símbolos de depuración para iOS y macOS que proporcionan la información necesaria para convertir direcciones de programa de vuelta a nombres de funciones, nombres de archivos fuente y números de línea.",
+  "887be83f180b104e": "CLI",
+  "89c7a83e47e8cfcd": "Último",
+  "8a3ebfe5eefa1f3a": "Servicios",
+  "8dcf09dc21a78b5c": "Perfilado",
+  "8ee1c3cf1d0b5692": "HTML",
+  "8f77abfed13290fc": "Tutoriales del Producto",
+  "912a38652c0609f5": "APIs para acceder a Sentry de forma programática.",
+  "91add63ffc66a2c0": "Todos los SDK compatibles con Sentry",
+  "91ea5d2b6b8362a7": {
+    "c": [
+      "Pregúntale a Sentry sobre ",
+      {
+        "c": {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        },
+        "i": 2,
+        "t": "span"
+      }
+    ],
+    "i": 1,
+    "t": "div"
+  },
+  "9265a59ffa433d01": "Clojure (Sentry Clj)",
+  "94226dd45d7c2052": {
+    "c": {
+      "d": {
+        "b": {
+          "Next": "Siguiente",
+          "Previous": "Anterior"
+        },
+        "t": "b"
+      },
+      "i": 2,
+      "t": "Branch"
+    },
+    "i": 1,
+    "t": "div"
+  },
+  "9588289bb956e0d6": "Documentación",
+  "9630cab36a225e8d": [
+    "El siguiente ejemplo de código te permitirá elegir tu configuración personal desde el menú desplegable, una vez que hayas ",
+    {
+      "c": "iniciado sesión",
+      "i": 1,
+      "t": "Link"
+    },
+    "."
+  ],
+  "968072d9af1cc1ba": {
+    "c": "En esta página",
+    "i": 1,
+    "t": "h2"
+  },
+  "96aae8c23c00903e": "Quarkus",
+  "976e4cbfa6fa14f0": "¿Cómo podemos mejorar esta página?",
+  "9b463ccb58c7cabd": "Sube tu código fuente para permitir que Sentry muestre fragmentos de tu código junto a los stack traces de eventos.",
+  "9e8950799011db6e": "GitHub Enterprise",
+  "9f8189f9fccc84b6": {
+    "c": "Conócenos",
+    "i": 1,
+    "t": "h2"
+  },
+  "a0b1cda8a1216c4c": {
+    "c": [
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      },
+      " requiere ",
+      {
+        "i": 3,
+        "k": "_gt_value_3",
+        "v": "v"
+      },
+      " versión ",
+      {
+        "c": {
+          "i": 5,
+          "k": "_gt_value_5",
+          "v": "v"
+        },
+        "i": 4,
+        "t": "code"
+      },
+      " o superior."
+    ],
+    "i": 1,
+    "t": "p"
+  },
+  "a285f1292e8a8574": "palabra clave",
+  "a6694b6f283723ad": "Conversaciones reales en tiempo real. Únete.",
+  "a9006bf88e74e9fb": "F#",
+  "a9b947a784c530e4": "Generando token...",
+  "a9f2d5fa970770c5": "Contexto de origen",
+  "a9f7bd5bbaa15f1c": "Imagen de la organización",
+  "ab47f58386924b4f": "Anterior",
+  "aca1668281d69d89": "Enviar comentarios",
+  "ad9c6c6fb79fc7c8": "Configuración de la Organización",
+  "ae1a122cf663e507": "Recopila comentarios de usuarios desde cualquier lugar de tu aplicación con un widget integrable que permite a los usuarios reportar errores y proporcionar información valiosa.",
+  "aead6b91dca54308": "¿Qué es Sentry?",
+  "b373e88e47bd85d8": "JSON",
+  "b38e18cf71ed346c": {
+    "c": [
+      "Versión del SDK: ",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      }
+    ],
+    "i": 1,
+    "t": "span"
+  },
+  "b4170381a593d32c": "Arquitectura de la Aplicación",
+  "b6f33581a13c76c8": "Monitoreo de Errores",
+  "b7b20228d7d1ccd0": "Session Replay ya está disponible de forma general para móviles.",
+  "ba853fa1aefa946b": {
+    "c": "Añadido:",
+    "i": 1,
+    "t": "span"
+  },
+  "bb9a903222c1bdcf": "Imagen de cohete",
+  "bbe080787718432b": "Serverless Framework",
+  "bc372d1b7722155b": {
+    "c": "Modificado:",
+    "i": 1,
+    "t": "span"
+  },
+  "bc9fca228f29f03f": "El monolito que impulsa Sentry.",
+  "bdda514910af8c60": "Por favor comparte tu opinión...",
+  "be386aa4d6a39a70": "OCaml",
+  "be3e0bf48b6818dd": "Sentry para {platform}",
+  "bfc9018b5a8f6603": {
+    "c": "Comenzar",
+    "i": 1,
+    "t": "Link"
+  },
+  "c0225c7325ab7fb9": "Buscar Proyecto",
+  "c0e0ab7b0a89f28d": {
+    "c": {
+      "c": [
+        "Mostrando las 20 actualizaciones más recientes. Ver el ",
+        {
+          "c": "panel de contenido completo",
+          "i": 3,
+          "t": "a"
+        },
+        " o suscribirse al ",
+        {
+          "c": "feed RSS",
+          "i": 4,
+          "t": "a"
+        },
+        "."
+      ],
+      "i": 2,
+      "t": "p"
+    },
+    "i": 1,
+    "t": "div"
+  },
+  "c25a0a8e3b12a8e2": "Imagen principal de Sentry",
+  "c2cb6ad98eb15937": "Ir a Sentry",
+  "c336504f4fe3bd20": "Edita este banner en `/src/components/banner/index.tsx`",
+  "c37237fc8d425018": "Integraciones",
+  "c3eeeebc1a198efd": {
+    "c": "Registro de cambios",
+    "i": 1,
+    "t": "Link"
+  },
+  "c5e3992a699ffd7e": {
+    "c": "Obtén una respuesta impulsada por IA a tu pregunta",
+    "i": 1,
+    "t": "div"
+  },
+  "c6099bfabce54674": "Instrumentando código de usuario.",
+  "c94a6f30ed5b65b8": "Información para configurar la cuenta de Sentry de tu organización.",
+  "c9b9395a4fa6592a": "Combina Sentry con OpenTelemetry.",
+  "ca4759898e28459e": "Copiar reglas",
+  "cab0179a0b032476": "Imagen de enchufe",
+  "cc8cdd1ece34cd75": "Nota",
+  "cd8ba56a4fd5b03e": "WordPress",
+  "ce62397c56fc2d1f": "Requiere que Tracing esté habilitado. Consulta las líneas exactas de código que causan tus cuellos de botella de rendimiento, para una resolución de problemas más rápida y optimización de recursos.",
+  "cf9e006355e10c19": "Usa la integración estándar de GitHub para github.com",
+  "d15602f01bb838ee": "No se encontraron SDKs",
+  "d2d6660d0ff9bd1b": "Nuxt 2",
+  "d2d9c091ed5f87c0": "Contenido Específico de la Plataforma",
+  "d3264cfb310b4030": "Escribe",
+  "d3b106fc0ee472d6": "Haz clic para seleccionar el proyecto",
+  "d48588f854314c97": "ARN",
+  "d5abcafdfe033b14": "Sentry Auto-Hospedado",
+  "d71213149c77df8e": {
+    "c": "Archivo",
+    "i": 1,
+    "t": "th"
+  },
+  "d7c1de156b4170eb": "Kubernetes",
+  "d857b1d836100e66": "JavaScript (ES6)",
+  "d91f800c5035b986": "La página que buscas está personalizada para cada plataforma. Selecciona tu plataforma a continuación y te dirigiremos a la documentación más específica sobre ella.",
+  "d9b5a363281956ec": "OpenTelemetry",
+  "db89ff88b3f5f808": {
+    "c": {
+      "c": "Documentación de la API",
+      "i": 2,
+      "t": "SmartLink"
+    },
+    "i": 1,
+    "t": "li"
+  },
+  "dcdf0779d4f12004": {
+    "c": "Ir a Sentry",
+    "i": 1,
+    "t": "Link"
+  },
+  "dd281e638ef8392f": "Backend",
+  "dd543f8308228919": "Versiones",
+  "def85a6fb901d27c": "Ver esta página como texto plano",
+  "df4cc6fe102d0c5a": "SDKs",
+  "df6215b61bbae9bc": "Sí 👍",
+  "e0c8478e1438c7b4": "Parámetros",
+  "e40e6d4ec89b5365": "Predeterminado",
+  "e4bdba2b98135c08": "Informar 404 en GitHub",
+  "e4f2775459c7de91": "Imagen de soporte",
+  "e7588632064e0364": "Copiado",
+  "e858582773036a8c": "Parámetros de Ruta",
+  "e91a06b8df9ae9e2": {
+    "c": [
+      " ",
+      "(",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      },
+      ")"
+    ],
+    "i": 1,
+    "t": "small"
+  },
+  "e9f89716dfcef12a": "Sí, esto fue útil",
+  "eaf8192a2c25e4ca": "Ingestion",
+  "eb06d0b09e455249": "Registro de cambios de la documentación",
+  "ec2571e23194be1a": "Usa la integración de GitHub Enterprise para tu dominio",
+  "ed5e16b03e8717b7": "Plataformas",
+  "edfbe0ccbf302b55": "Logotipo de Sentry",
+  "ee3e8bd8b7918aec": "Buscar",
+  "ee70eda414dc4586": {
+    "c": [
+      {
+        "c": [
+          "Necesitas ",
+          {
+            "c": "autenticarte mediante token de autenticación bearer.",
+            "i": 3,
+            "t": "SmartLink"
+          }
+        ],
+        "i": 2,
+        "t": "div"
+      },
+      {
+        "c": "<auth_token>",
+        "i": 4,
+        "t": "code"
+      },
+      " requiere uno de los siguientes scopes:"
+    ],
+    "i": 1,
+    "t": "div"
+  },
+  "eee4556d08378cc3": "dSYM",
+  "efd9775f35548e44": "¡Copiado!",
+  "efe894c61467a45d": "TypeScript",
+  "f0308ae2275507c6": "Cómo usar 'sentry-cli' en la línea de comandos.",
+  "f23922b9d6962b39": "Documentación para Desarrolladores",
+  "f3a67e68c2900a1d": "Error de red - por favor intenta de nuevo",
+  "f5d0903337574ed0": "Configuración de la cuenta",
+  "f7937c8d7882939d": "Conceptos fundamentales que hacen de Sentry, Sentry.",
+  "f7c05d3a4ef136b8": "JavaScript",
+  "f7d4c080503e9a83": "Hubo un error al generar tu token.",
+  "f8c144a0a3070ac7": "Monitoreo de errores de Sentry",
+  "fbdc38974ff2df72": "Ámbitos",
+  "fbe11a2e1903cdf9": {
+    "c": [
+      "Declarado ",
+      {
+        "i": 2,
+        "k": "_gt_value_2",
+        "v": "v"
+      }
+    ],
+    "i": 1,
+    "t": "small"
+  },
+  "fda5c9f6d1d9da06": "Cambiar tema",
+  "fe3e030bc6f25d4c": {
+    "c": "Ver archivos modificados",
+    "i": 1,
+    "t": "summary"
+  },
+  "fed968c6ffe41d8c": "OBLIGATORIO",
+  "ffe068f28fece7f7": "Documentación de Usuario"
+}

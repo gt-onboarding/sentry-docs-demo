@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import {Button} from '@radix-ui/themes';
+import {T} from 'gt-next';
 
 import {Header} from 'sentry-docs/components/header';
 import {Search} from 'sentry-docs/components/search';
@@ -19,11 +20,17 @@ export default function NotFound() {
     <div className="tw-app">
       <Header pathname="/" searchPlatforms={[]} noSearch />
       <main className="px-8 pt-28">
-        <h1 className="font-medium text-3xl mb-4">Page Not Found</h1>
-        <p className="text-lg">We couldn't find the page you were looking for :(</p>
+        <T>
+          <h1 className="font-medium text-3xl mb-4">Page Not Found</h1>
+        </T>
+        <T>
+          <p className="text-lg">We couldn't find the page you were looking for :(</p>
+        </T>
 
         <div className="max-w-md pt-8">
-          <p className="pb-4">Let's give it another shot:</p>
+          <T>
+            <p className="pb-4">Let's give it another shot:</p>
+          </T>
           <Search
             autoFocus
             path={pathname}
@@ -35,7 +42,7 @@ export default function NotFound() {
         <div className="pt-8 flex gap-4">
           <Button variant="solid" size="3" asChild>
             <a href={reportUrl} target="_blank" rel="noreferrer">
-              Report 404 on GitHub
+              <T>Report 404 on GitHub</T>
             </a>
           </Button>
           <Button variant="soft" size="3" asChild>
@@ -44,7 +51,7 @@ export default function NotFound() {
               target="_blank"
               rel="noreferrer"
             >
-              Ask a Bot
+              <T>Ask a Bot</T>
             </a>
           </Button>
         </div>

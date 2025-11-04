@@ -28,6 +28,7 @@
  */
 
 import {useEffect, useMemo, useRef, useState} from 'react';
+import {T, useGT} from 'gt-next';
 
 import styles from './style.module.scss';
 
@@ -58,6 +59,7 @@ export function StepComponent({
   persistence = 'session',
   showReset = true,
 }: Props) {
+  const gt = useGT();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [completed, setCompleted] = useState<Set<string>>(new Set());
 
@@ -99,7 +101,7 @@ export function StepComponent({
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = styles.stepToggle;
-        btn.setAttribute('aria-label', `Toggle completion for step ${stepNumber}`);
+        btn.setAttribute('aria-label', gt('Toggle completion for step {stepNumber}', {stepNumber}));
         btn.setAttribute('aria-pressed', completed.has(h.id) ? 'true' : 'false');
         btn.addEventListener('click', () => {
           setCompleted(prev => {
@@ -179,9 +181,11 @@ export function StepComponent({
     >
       {checkable && showReset && (
         <div className={styles.resetRow}>
-          <button type="button" className={styles.resetBtn} onClick={handleReset}>
-            Reset steps
-          </button>
+          <T>
+            <button type="button" className={styles.resetBtn} onClick={handleReset}>
+              Reset steps
+            </button>
+          </T>
         </div>
       )}
       {children}

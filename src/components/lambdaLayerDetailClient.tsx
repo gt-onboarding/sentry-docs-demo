@@ -3,6 +3,7 @@
 import {useState} from 'react';
 import Select from 'react-select';
 import styled from '@emotion/styled';
+import {useGT} from 'gt-next';
 
 type RegionData = {region: string; version: string};
 type LayerData = {
@@ -26,6 +27,7 @@ export function LambdaLayerDetailClient({
   canonical: string;
   layerList: LayerData[];
 }) {
+  const gt = useGT();
   const layer = layerList.find(l => l.canonical === canonical);
   // if we don't find a matching layer, let the page blow up
   // cause the page is useless without it
@@ -55,14 +57,14 @@ export function LambdaLayerDetailClient({
         styles={{
           control: base => ({...base, width: 300}),
         }}
-        placeholder="Select Region"
+        placeholder={gt('Select Region')}
         options={layer.regions.map(toOption)}
         value={regionOption}
         onChange={setRegion}
       />
       {arn && (
         <ArnWrapper>
-          <ArnLabel>ARN</ArnLabel>
+          <ArnLabel>{gt('ARN')}</ArnLabel>
           <code>{arn}</code>
         </ArnWrapper>
       )}

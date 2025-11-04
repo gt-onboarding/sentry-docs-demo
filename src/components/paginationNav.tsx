@@ -1,4 +1,5 @@
 import {DoubleArrowLeftIcon, DoubleArrowRightIcon} from '@radix-ui/react-icons';
+import {T, Branch} from 'gt-next';
 
 import {PaginationNavNode} from 'sentry-docs/types/paginationNavNode';
 
@@ -16,7 +17,15 @@ export function PaginationNav({
           title === 'Previous' ? 'text-left' : 'text-right'
         }`}
       >
-        <div className="text-sm [color:var(--foreground)]">{title}</div>
+        <T>
+          <div className="text-sm [color:var(--foreground)]">
+            <Branch
+              branch={title}
+              Previous="Previous"
+              Next="Next"
+            />
+          </div>
+        </T>
         <div
           className={`flex items-center gap-1 font-[500] ${
             title === 'Previous' ? 'justify-start' : 'justify-end'

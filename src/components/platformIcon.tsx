@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {useGT} from 'gt-next';
 import ActixSVG from 'platformicons/svg/actix.svg';
 import AiohttpSVG from 'platformicons/svg/aiohttp.svg';
 import AngularjsSVG from 'platformicons/svg/angularjs.svg';
@@ -1119,6 +1120,7 @@ export function PlatformIcon({
   style = {},
   ...otherProps
 }: Props) {
+  const gt = useGT();
   const icon = getIcon(platform);
   const svg = formatToSVG[icon][format];
   if (!svg) {
@@ -1137,7 +1139,7 @@ export function PlatformIcon({
           width={size}
           height={size}
           style={{borderRadius: `${radius}px`}}
-          alt={`${platform} icon`}
+          alt={gt('{platform} icon', {platform})}
           loading="eager"
         />
         <Image
@@ -1154,7 +1156,7 @@ export function PlatformIcon({
             marginBottom: 0,
             ...languageIconStyles,
           }}
-          alt={`${platform} icon`}
+          alt={gt('{platform} icon', {platform})}
         />
       </div>
     );
@@ -1169,7 +1171,7 @@ export function PlatformIcon({
       placeholder={undefined}
       loading="eager"
       style={{borderRadius: `${radius}px`, marginTop: 0, marginBottom: 0, ...style}}
-      alt={`${platform} icon`}
+      alt={gt('{platform} icon', {platform})}
     />
   );
 }

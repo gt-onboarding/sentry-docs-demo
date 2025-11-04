@@ -1,4 +1,5 @@
 import getPackageRegistry from 'sentry-docs/build/packageRegistry';
+import {T} from 'gt-next';
 
 import styles from './styles.module.scss';
 
@@ -21,8 +22,8 @@ export async function JsBundleList() {
     <table className={styles.Table}>
       <thead>
         <tr>
-          <th>File</th>
-          <th>Integrity Checksum</th>
+          <T><th>File</th></T>
+          <T><th>Integrity Checksum</th></T>
         </tr>
       </thead>
       <tbody>

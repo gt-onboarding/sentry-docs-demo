@@ -9,6 +9,7 @@ import {Search} from 'sentry-docs/components/search';
 import styles from './styles.module.scss';
 
 import {ThemeToggle} from '../theme-toggle';
+import {LocaleSelector, T} from 'gt-next';
 
 type Props = {
   pathname: string;
@@ -18,6 +19,7 @@ type Props = {
 export function MobileMenu({pathname, searchPlatforms}: Props) {
   return (
     <div className="flex gap-6 items-center">
+      <LocaleSelector />
       <ThemeToggle />
       <Popover.Root>
         <Popover.Trigger asChild>
@@ -28,7 +30,7 @@ export function MobileMenu({pathname, searchPlatforms}: Props) {
             radius="medium"
             className="font-medium text-[var(--foreground)]"
           >
-            Menu
+            <T>Menu</T>
             <TriangleRightIcon />
           </Button>
         </Popover.Trigger>
@@ -43,16 +45,24 @@ export function MobileMenu({pathname, searchPlatforms}: Props) {
                 <div className={styles.MenuSeparator} />
               </Box>
               <li className={styles.MenuItem}>
-                <Link href="https://sentry.io/changelog/">Changelog</Link>
+                <T>
+                  <Link href="https://sentry.io/changelog/">Changelog</Link>
+                </T>
               </li>
               <li className={styles.MenuItem}>
-                <Link href="https://sandbox.sentry.io/">Sandbox</Link>
+                <T>
+                  <Link href="https://sandbox.sentry.io/">Sandbox</Link>
+                </T>
               </li>
               <li className={styles.MenuItem}>
-                <Link href="https://sentry.io/">Go to Sentry</Link>
+                <T>
+                  <Link href="https://sentry.io/">Go to Sentry</Link>
+                </T>
               </li>
               <li className={styles.MenuItem}>
-                <Link href="https://sentry.io/signup/">Get Started</Link>
+                <T>
+                  <Link href="https://sentry.io/signup/">Get Started</Link>
+                </T>
               </li>
             </Popover.Content>
           </Theme>

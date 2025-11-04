@@ -1,5 +1,6 @@
 import {Metadata} from 'next';
 import {redirect} from 'next/navigation';
+import {getGT} from 'gt-next/server';
 
 import {Alert} from 'sentry-docs/components/alert';
 import {DocPage} from 'sentry-docs/components/docPage';
@@ -10,17 +11,22 @@ import {setServerContext} from 'sentry-docs/serverContext';
 
 import {sanitizeNext} from './utils';
 
-export const metadata: Metadata = {
-  robots: 'noindex',
-  title: 'Platform Specific Content',
-  description:
-    'The page you are looking for is customized for each platform. Select your platform below and we’ll direct you to the most specific documentation on it.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const gt = await getGT();
+  return {
+    robots: 'noindex',
+    title: gt('Platform Specific Content'),
+    description: gt(
+      "The page you are looking for is customized for each platform. Select your platform below and we'll direct you to the most specific documentation on it."
+    ),
+  };
+}
 
 export default async function Page(props: {
   searchParams: Promise<{[key: string]: string | string[] | undefined}>;
 }) {
   const searchParams = await props.searchParams;
+  const gt = await getGT();
 
   let next = searchParams.next || '';
   const platform = searchParams.platform;
@@ -31,10 +37,11 @@ export default async function Page(props: {
 
   const pathname = sanitizeNext(next);
   const rootNode = await getDocsRootNode();
-  const defaultTitle = 'Platform Specific Content';
+  const defaultTitle = gt('Platform Specific Content');
   let description = '';
-  const platformInfo =
-    "The page you are looking for is customized for each platform. Select your platform below and we'll direct you to the most specific documentation on it.";
+  const platformInfo = gt(
+    "The page you are looking for is customized for each platform. Select your platform below and we'll direct you to the most specific documentation on it."
+  );
   let title = defaultTitle;
 
   // get rid of irrelevant platforms for the `next` path

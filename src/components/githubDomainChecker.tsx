@@ -1,12 +1,14 @@
 'use client';
 
 import {useState} from 'react';
+import {useGT} from 'gt-next';
 
 interface GitHubDomainCheckerProps {
   id?: string;
 }
 
 export function GitHubDomainChecker({id}: GitHubDomainCheckerProps = {}) {
+  const gt = useGT();
   const [domain, setDomain] = useState('');
   const [isValidDomain, setIsValidDomain] = useState(false);
 
@@ -95,13 +97,13 @@ export function GitHubDomainChecker({id}: GitHubDomainCheckerProps = {}) {
       <div className="flex w-full">
         <div className="flex items-center min-w-[16ch] px-4">
           <label htmlFor={inputId} className="text-nowrap">
-            GitHub Domain
+            {gt('GitHub Domain')}
           </label>
         </div>
         <input
           id={inputId}
           value={domain}
-          placeholder="https://github.com or https://ghe.example.com"
+          placeholder={gt('https://github.com or https://ghe.example.com')}
           className={inputClassName}
           onChange={handleDomainChange}
         />
@@ -111,26 +113,24 @@ export function GitHubDomainChecker({id}: GitHubDomainCheckerProps = {}) {
         <div className="mt-4 p-4 rounded-md border dark:border-gray-600">
           {isValidDomain ? (
             <div>
-              <div className="text-sm font-medium mb-2">Recommended Installation:</div>
+              <div className="text-sm font-medium mb-2">{gt('Recommended Installation:')}</div>
               {isGitHubCom ? (
                 <div className="text-green-700 bg-green-50 dark:text-green-300 dark:bg-green-900/30 p-3 rounded-md">
                   <div>
-                    <strong>GitHub</strong> - Use the standard GitHub integration for
-                    github.com
+                    <strong>{gt('GitHub')}</strong> - {gt('Use the standard GitHub integration for github.com')}
                   </div>
                 </div>
               ) : (
                 <div className="text-blue-700 bg-blue-50 dark:text-blue-300 dark:bg-blue-900/30 p-3 rounded-md">
                   <div>
-                    <strong>GitHub Enterprise</strong> - Use GitHub Enterprise integration
-                    for your domain
+                    <strong>{gt('GitHub Enterprise')}</strong> - {gt('Use GitHub Enterprise integration for your domain')}
                   </div>
                 </div>
               )}
             </div>
           ) : (
             <div className="text-red-700 bg-red-50 dark:text-red-300 dark:bg-red-900/30 p-3 rounded-md">
-              <strong>Invalid Domain</strong> - Please enter a valid GitHub domain or URL
+              <strong>{gt('Invalid Domain')}</strong> - {gt('Please enter a valid GitHub domain or URL')}
             </div>
           )}
         </div>
