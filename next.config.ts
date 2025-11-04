@@ -1,51 +1,52 @@
-import {codecovNextJSWebpackPlugin} from '@codecov/nextjs-webpack-plugin';
-import {withSentryConfig} from '@sentry/nextjs';
+import { withGTConfig } from "gt-next/config";
+import { codecovNextJSWebpackPlugin } from '@codecov/nextjs-webpack-plugin';
+import { withSentryConfig } from '@sentry/nextjs';
 
-import {REMOTE_IMAGE_PATTERNS} from './src/config/images';
-import {redirects} from './redirects.js';
+import { REMOTE_IMAGE_PATTERNS } from './src/config/images';
+import { redirects } from './redirects.js';
 
-const outputFileTracingExcludes = process.env.NEXT_PUBLIC_DEVELOPER_DOCS
-  ? {
-      '/**/*': [
-        '**/*.map',
-        './.git/**/*',
-        './apps/**/*',
-        './.next/cache/mdx-bundler/**/*',
-        './.next/cache/md-exports/**/*',
-        'docs/**/*',
-      ],
-    }
-  : {
-      '/**/*': [
-        '**/*.map',
-        './.git/**/*',
-        './.next/cache/mdx-bundler/**/*',
-        './.next/cache/md-exports/**/*',
-        './apps/**/*',
-        'develop-docs/**/*',
-        'node_modules/@esbuild/*',
-      ],
-      '/platform-redirect': [
-        '**/*.gif',
-        'public/mdx-images/**/*',
-        'public/og-images/**/*',
-        '**/*.pdf',
-      ],
-      '\\[\\[\\.\\.\\.path\\]\\]': [
-        'docs/**/*',
-        'node_modules/prettier/plugins',
-        'node_modules/rollup/dist',
-        'public/og-images/**/*',
-      ],
-      'sitemap.xml': [
-        'docs/**/*',
-        'public/mdx-images/**/*',
-        'public/og-images/**/*',
-        '**/*.gif',
-        '**/*.pdf',
-        '**/*.png',
-      ],
-    };
+const outputFileTracingExcludes = process.env.NEXT_PUBLIC_DEVELOPER_DOCS ?
+{
+  '/**/*': [
+  '**/*.map',
+  './.git/**/*',
+  './apps/**/*',
+  './.next/cache/mdx-bundler/**/*',
+  './.next/cache/md-exports/**/*',
+  'docs/**/*']
+
+} :
+{
+  '/**/*': [
+  '**/*.map',
+  './.git/**/*',
+  './.next/cache/mdx-bundler/**/*',
+  './.next/cache/md-exports/**/*',
+  './apps/**/*',
+  'develop-docs/**/*',
+  'node_modules/@esbuild/*'],
+
+  '/platform-redirect': [
+  '**/*.gif',
+  'public/mdx-images/**/*',
+  'public/og-images/**/*',
+  '**/*.pdf'],
+
+  '\\[\\[\\.\\.\\.path\\]\\]': [
+  'docs/**/*',
+  'node_modules/prettier/plugins',
+  'node_modules/rollup/dist',
+  'public/og-images/**/*'],
+
+  'sitemap.xml': [
+  'docs/**/*',
+  'public/mdx-images/**/*',
+  'public/og-images/**/*',
+  '**/*.gif',
+  '**/*.pdf',
+  '**/*.png']
+
+};
 
 if (process.env.NODE_ENV !== 'development' && !process.env.NEXT_PUBLIC_SENTRY_DSN) {
   throw new Error(
@@ -61,7 +62,7 @@ const nextConfig = {
   outputFileTracingExcludes,
   images: {
     contentDispositionType: 'inline', // "open image in new tab" instead of downloading
-    remotePatterns: REMOTE_IMAGE_PATTERNS,
+    remotePatterns: REMOTE_IMAGE_PATTERNS
   },
   webpack: (config, options) => {
     config.plugins.push(
@@ -69,7 +70,7 @@ const nextConfig = {
         enableBundleAnalysis: typeof process.env.CODECOV_TOKEN === 'string',
         bundleName: 'sentry-docs',
         uploadToken: process.env.CODECOV_TOKEN,
-        webpack: options.webpack,
+        webpack: options.webpack
       })
     );
 
@@ -77,18 +78,18 @@ const nextConfig = {
   },
   env: {
     // This is used on middleware
-    DEVELOPER_DOCS_: process.env.NEXT_PUBLIC_DEVELOPER_DOCS,
+    DEVELOPER_DOCS_: process.env.NEXT_PUBLIC_DEVELOPER_DOCS
   },
   redirects,
   rewrites: () => [
-    {
-      source: '/:path*.md',
-      destination: '/md-exports/:path*.md',
-    },
-  ],
+  {
+    source: '/:path*.md',
+    destination: '/md-exports/:path*.md'
+  }],
+
   sassOptions: {
-    silenceDeprecations: ['legacy-js-api'],
-  },
+    silenceDeprecations: ['legacy-js-api']
+  }
 };
 
 module.exports = withSentryConfig(nextConfig, {
@@ -111,14 +112,14 @@ module.exports = withSentryConfig(nextConfig, {
   automaticVercelMonitors: true,
 
   reactComponentAnnotation: {
-    enabled: true,
+    enabled: true
   },
 
   unstable_sentryWebpackPluginOptions: {
-    applicationKey: 'sentry-docs',
+    applicationKey: 'sentry-docs'
   },
 
   _experimental: {
-    thirdPartyOriginStackFrames: true,
-  },
+    thirdPartyOriginStackFrames: true
+  }
 });

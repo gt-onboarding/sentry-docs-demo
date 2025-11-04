@@ -12,6 +12,7 @@ import {MobileMenu} from './mobileMenu';
 import {NavLink} from './navlink';
 import {Search} from './search';
 import {ThemeToggle} from './theme-toggle';
+import {LocaleSelector, useGT, T} from 'gt-next';
 
 export const sidebarToggleId = sidebarStyles['navbar-menu-toggle'];
 
@@ -28,6 +29,7 @@ export function Header({
   noSearch,
   useStoredSearchPlatforms,
 }: Props) {
+  const gt = useGT();
   return (
     <header className="bg-[var(--gray-1)] h-[var(--header-height)] w-full z-50 border-b border-[var(--gray-a3)] fixed top-0">
       {/* define a header-height variable for consumption by other components */}
@@ -37,7 +39,7 @@ export function Header({
           <button className="lg:hidden mr-3">
             <label
               htmlFor={sidebarToggleId}
-              aria-label="Close"
+              aria-label={gt('Close')}
               aria-hidden="true"
               className="inline-flex items-center cursor-pointer"
             >
@@ -52,18 +54,18 @@ export function Header({
         )}
         <Link
           href="/"
-          title="Sentry error monitoring"
+          title={gt('Sentry error monitoring')}
           className="logo-slot flex flex-shrink-0 items-center lg:w-[calc(var(--sidebar-width,300px)-2rem)] text-2xl font-medium text-[var(--foreground)]"
         >
           <div className="h-full pb-[6px]">
             <Image
               src={SentryLogoSVG}
-              alt="Sentry's logo"
+              alt={gt("Sentry's logo")}
               width={40}
               className="h-16 dark:invert"
             />
           </div>
-          Docs
+          <T>Docs</T>
         </Link>
         {!noSearch && (
           <div className="hidden md:flex justify-center lg:justify-start w-full px-6">
@@ -76,15 +78,16 @@ export function Header({
           </div>
         )}
         <div className="hidden lg-xl:flex justify-end flex-1 gap-6 items-center min-w-fit">
-          <NavLink href="https://sentry.io/changelog/">Changelog</NavLink>
-          <NavLink href="https://sandbox.sentry.io/">Sandbox</NavLink>
-          <NavLink href="https://sentry.io/">Go to Sentry</NavLink>
+          <NavLink href="https://sentry.io/changelog/"><T>Changelog</T></NavLink>
+          <NavLink href="https://sandbox.sentry.io/"><T>Sandbox</T></NavLink>
+          <NavLink href="https://sentry.io/"><T>Go to Sentry</T></NavLink>
           <NavLink
             href="https://sentry.io/signup/"
             className="transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#fa7faa] hover:via-[#ff9691] hover:to-[#ffb287]"
           >
-            Get Started
+            <T>Get Started</T>
           </NavLink>
+          <LocaleSelector />
           <ThemeToggle />
         </div>
         <div className="lg-xl:hidden ml-auto">

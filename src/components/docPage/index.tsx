@@ -6,6 +6,7 @@ import {FrontMatter} from 'sentry-docs/types';
 import {PaginationNavNode} from 'sentry-docs/types/paginationNavNode';
 import {isNotNil} from 'sentry-docs/utils';
 import {getUnversionedPath} from 'sentry-docs/versioning';
+import {useGT} from 'gt-next';
 
 import './type.scss';
 
@@ -44,6 +45,7 @@ export function DocPage({
   nextPage,
   previousPage,
 }: Props) {
+  const gt = useGT();
   const {rootNode, path} = serverContext();
   const currentPlatform = getCurrentPlatform(rootNode, path);
   const currentGuide = getCurrentGuide(rootNode, path);
@@ -103,10 +105,10 @@ export function DocPage({
 
               <div className="grid grid-cols-2 gap-4 not-prose mt-16">
                 <div className="col-span-1">
-                  {previousPage && <PaginationNav node={previousPage} title="Previous" />}
+                  {previousPage && <PaginationNav node={previousPage} title={gt('Previous')} />}
                 </div>
                 <div className="col-span-1">
-                  {nextPage && <PaginationNav node={nextPage} title="Next" />}
+                  {nextPage && <PaginationNav node={nextPage} title={gt('Next')} />}
                 </div>
               </div>
 

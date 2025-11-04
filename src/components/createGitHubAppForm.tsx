@@ -2,10 +2,12 @@
 
 import {useState} from 'react';
 import {Button} from '@radix-ui/themes';
+import {T, useGT} from 'gt-next';
 
 const MAX_COMPONENTS_ON_PAGE = 100;
 
 export function CreateGitHubAppForm({url, defaultOrg, defaultUrlPrefix}) {
+  const gt = useGT();
   const [orgSlug, setOrgSlug] = useState('');
   const [urlPrefix, setUrlPrefix] = useState('');
   const renderedUrl = url
@@ -21,9 +23,11 @@ export function CreateGitHubAppForm({url, defaultOrg, defaultUrlPrefix}) {
     <div className="space-y-4 p-6 border border-gray-100 rounded">
       <div className="flex w-full">
         <div className="flex items-center min-w-[16ch] px-4">
-          <label htmlFor={`gh-org-slug-${randomCounter}`} className="text-nowrap">
-            GitHub Org Slug
-          </label>
+          <T>
+            <label htmlFor={`gh-org-slug-${randomCounter}`} className="text-nowrap">
+              GitHub Org Slug
+            </label>
+          </T>
         </div>
         <input
           id={`gh-org-slug-${randomCounter}`}
@@ -35,9 +39,11 @@ export function CreateGitHubAppForm({url, defaultOrg, defaultUrlPrefix}) {
       </div>
       <div className="flex w-full">
         <div className="flex items-center min-w-[16ch] px-4">
-          <label htmlFor={`gh-org-slug-${randomCounter}`} className="text-nowrap">
-            Sentry <code>url-prefix</code>
-          </label>
+          <T>
+            <label htmlFor={`gh-org-slug-${randomCounter}`} className="text-nowrap">
+              Sentry <code>url-prefix</code>
+            </label>
+          </T>
         </div>
         <input
           id={`sentry-url-prefix-${randomCounter}`}
@@ -57,7 +63,7 @@ export function CreateGitHubAppForm({url, defaultOrg, defaultUrlPrefix}) {
             disabled={!orgSlug || !urlPrefix}
             className="rounded-md"
           >
-            Create GitHub App
+            {gt('Create GitHub App')}
           </Button>
         </div>
       </div>

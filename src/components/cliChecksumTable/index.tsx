@@ -1,4 +1,5 @@
 import getAppRegistry from 'sentry-docs/build/appRegistry';
+import {T, Var} from 'gt-next';
 
 import styles from './styles.module.scss';
 
@@ -22,8 +23,8 @@ export async function CliChecksumTable() {
     <table className={styles.Table}>
       <thead>
         <tr>
-          <th>Filename (v{version})</th>
-          <th>Integrity Checksum</th>
+          <T><th>Filename (v<Var>{version}</Var>)</th></T>
+          <T><th>Integrity Checksum</th></T>
         </tr>
       </thead>
       <tbody>

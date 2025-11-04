@@ -1,5 +1,6 @@
 import {Fragment} from 'react';
 import {micromark} from 'micromark';
+import {T, useGT} from 'gt-next';
 
 import metrics from 'sentry-docs/data/relay_metrics.json';
 
@@ -22,12 +23,15 @@ export function RelayMetrics() {
 }
 
 function RelayFeatures({features}) {
+  const gt = useGT();
   if (Array.isArray(features) && features.includes('processing')) {
     return (
-      <Alert title="Note">
-        This metric is emitted only when Relay runs as internal Sentry service for event
-        ingestion (<code>processing</code> feature).
-      </Alert>
+      <T>
+        <Alert title={gt('Note')}>
+          This metric is emitted only when Relay runs as internal Sentry service for event
+          ingestion (<code>processing</code> feature).
+        </Alert>
+      </T>
     );
   }
 

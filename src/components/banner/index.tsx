@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
+import {msg, useMessages} from 'gt-next';
 
 import styles from './banner.module.scss';
 
@@ -50,9 +51,9 @@ const BANNERS: BannerType[] = [
   // check it out on `/contributing/pages/banners/`
   {
     appearsOn: ['^/contributing/pages/banners/'],
-    text: 'Edit this banner on `/src/components/banner/index.tsx`',
+    text: msg('Edit this banner on `/src/components/banner/index.tsx`'),
     linkURL: 'https://docs.sentry.io/contributing/pages/banners/',
-    linkText: 'CTA',
+    linkText: msg('CTA'),
   },
   {
     appearsOn: [
@@ -61,9 +62,9 @@ const BANNERS: BannerType[] = [
       '^/platforms/android/',
       '^/platforms/apple/guides/ios/',
     ],
-    text: 'Session Replay is now generally available for mobile.',
+    text: msg('Session Replay is now generally available for mobile.'),
     linkURL: 'https://docs.sentry.io/product/explore/session-replay/mobile/',
-    linkText: 'Get started today.',
+    linkText: msg('Get started today.'),
   },
 ];
 
@@ -100,6 +101,7 @@ const readOrResetLocalStorage = () => {
 export function Banner() {
   type BannerWithHash = BannerType & {hash: string};
   const [banner, setBanner] = useState<BannerWithHash | null>(null);
+  const m = useMessages();
 
   useEffect(() => {
     const matchingBanner = BANNERS.find(b => {
@@ -136,9 +138,9 @@ export function Banner() {
     <div className={[styles['promo-banner']].filter(Boolean).join(' ')}>
       <div className={styles['promo-banner-message']}>
         <span className="flex flex-col md:flex-row gap-4">
-          {banner.text}
+          {m(banner.text)}
           <a href={banner.linkURL} className="min-w-max">
-            {banner.linkText}
+            {m(banner.linkText)}
           </a>
         </span>
       </div>

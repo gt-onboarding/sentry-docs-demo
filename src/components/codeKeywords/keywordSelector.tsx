@@ -5,6 +5,7 @@ import {createPortal} from 'react-dom';
 import {usePopper} from 'react-popper';
 import {AnimatePresence} from 'framer-motion';
 import {useTheme} from 'next-themes';
+import {useGT} from 'gt-next';
 
 import {useOnClickOutside} from 'sentry-docs/clientUtils';
 import {useIsMounted} from 'sentry-docs/hooks/isMounted';
@@ -46,6 +47,7 @@ export function KeywordSelector({
   const [orgFilter, setOrgFilter] = useState('');
   const [showProjectPreview, setShowProjectPreview] = useState(false);
   const {resolvedTheme: theme} = useTheme();
+  const gt = useGT();
 
   const isDarkMode = theme === 'dark';
   const {isMounted} = useIsMounted();
@@ -75,7 +77,7 @@ export function KeywordSelector({
   const currentSelection = choices[currentSelectionIdx];
 
   if (!currentSelection) {
-    return <Fragment>keyword</Fragment>;
+    return <Fragment>{gt('keyword')}</Fragment>;
   }
 
   const selector = isOpen && (
@@ -89,7 +91,7 @@ export function KeywordSelector({
           />
           {choices.length > 5 && (
             <KeywordSearchInput
-              placeholder="Search Project"
+              placeholder={gt('Search Project')}
               onClick={e => e.stopPropagation()}
               value={orgFilter}
               onChange={e => setOrgFilter(e.target.value)}
@@ -137,8 +139,11 @@ export function KeywordSelector({
         title={currentSelection?.title}
         aria-label={
           currentSelection?.title
-            ? `${currentSelection?.title}: ${currentSelection[keyword]}. Click to select different project.`
-            : `Click to select project`
+            ? gt('{title}: {keyword}. Click to select different project.', {
+                title: currentSelection.title,
+                keyword: currentSelection[keyword],
+              })
+            : gt('Click to select project')
         }
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}

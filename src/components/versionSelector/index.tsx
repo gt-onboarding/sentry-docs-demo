@@ -3,6 +3,7 @@ import {useCallback, useEffect, useState} from 'react';
 import {ChevronDownIcon} from '@radix-ui/react-icons';
 import * as RadixSelect from '@radix-ui/react-select';
 import {usePathname, useRouter} from 'next/navigation';
+import {T, Var, useGT} from 'gt-next';
 
 import {stripTrailingSlash} from 'sentry-docs/utils';
 import {getLocalStorageVersionKey, VERSION_INDICATOR} from 'sentry-docs/versioning';
@@ -38,6 +39,7 @@ export function VersionSelector({versions, sdk}: {sdk: string; versions: string[
   const availableVersions = ['latest', ...sortVersions([...versions])];
   const router = useRouter();
   const pathname = usePathname();
+  const gt = useGT();
 
   const getLocallyStoredVersion = useCallback(() => {
     return localStorage.getItem(getLocalStorageVersionKey(sdk));
@@ -113,9 +115,11 @@ export function VersionSelector({versions, sdk}: {sdk: string; versions: string[
         />
       )}
       <RadixSelect.Root value={selectedVersion} onValueChange={handleVersionChange}>
-        <RadixSelect.Trigger aria-label="Version" className={styles.select}>
-          <RadixSelect.Value placeholder="Version">
-            <span className="text-sm">SDK version: {selectedVersion}</span>
+        <RadixSelect.Trigger aria-label={gt('Version')} className={styles.select}>
+          <RadixSelect.Value placeholder={gt('Version')}>
+            <T>
+              <span className="text-sm">SDK version: <Var>{selectedVersion}</Var></span>
+            </T>
           </RadixSelect.Value>
           <RadixSelect.Icon>
             <ChevronDownIcon />
@@ -123,7 +127,7 @@ export function VersionSelector({versions, sdk}: {sdk: string; versions: string[
         </RadixSelect.Trigger>
         <RadixSelect.Content
           role="dialog"
-          aria-label="Versions"
+          aria-label={gt('Versions')}
           position="popper"
           className={styles.popover}
         >

@@ -1,3 +1,5 @@
+import {T, Var} from 'gt-next';
+
 import getPackageRegistry from 'sentry-docs/build/packageRegistry';
 import {getCurrentPlatformOrGuide, nodeForPath} from 'sentry-docs/docTree';
 import {serverContext} from 'sentry-docs/serverContext';
@@ -37,21 +39,39 @@ export async function PlatformSdkDetail() {
 
   return (
     <div className={styles.PackageDetail}>
-      <h3>Package Details</h3>
+      <T>
+        <h3>Package Details</h3>
+      </T>
       <ul>
-        <li>Latest version: {version}</li>
-        <li>{url ? <SmartLink to={url}>{canonical}</SmartLink> : canonical}</li>
-        <li>
-          <SmartLink to={repoUrl} target="_blank">
-            Repository on GitHub
-          </SmartLink>
-        </li>
-        {apiDocsUrl && (
+        <T>
           <li>
-            <SmartLink to={apiDocsUrl} target="_blank">
-              API documentation
+            Latest version: <Var>{version}</Var>
+          </li>
+        </T>
+        <li>
+          {url ? (
+            <SmartLink to={url}>
+              {canonical}
+            </SmartLink>
+          ) : (
+            canonical
+          )}
+        </li>
+        <T>
+          <li>
+            <SmartLink to={repoUrl} target="_blank">
+              Repository on GitHub
             </SmartLink>
           </li>
+        </T>
+        {apiDocsUrl && (
+          <T>
+            <li>
+              <SmartLink to={apiDocsUrl} target="_blank">
+                API documentation
+              </SmartLink>
+            </li>
+          </T>
         )}
       </ul>
     </div>

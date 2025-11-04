@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 import styled from '@emotion/styled';
+import {msg, useMessages} from 'gt-next';
 
 import {CodeBlockProps} from './codeBlock';
 import {CodeContext} from './codeContext';
@@ -19,22 +20,24 @@ import {SignInNote} from './signInNote';
 
 // human readable versions of names
 const HUMAN_LANGUAGE_NAMES = {
-  coffee: 'CoffeeScript',
-  cpp: 'C++',
-  csharp: 'C#',
-  es6: 'JavaScript (ES6)',
-  fsharp: 'F#',
-  html: 'HTML',
-  javascript: 'JavaScript',
-  json: 'JSON',
-  jsx: 'JSX',
-  tsx: 'TSX',
-  php: 'PHP',
-  powershell: 'PowerShell',
-  typescript: 'TypeScript',
-  yaml: 'YAML',
-  yml: 'YAML',
+  coffee: msg('CoffeeScript'),
+  cpp: msg('C++'),
+  csharp: msg('C#'),
+  es6: msg('JavaScript (ES6)'),
+  fsharp: msg('F#'),
+  html: msg('HTML'),
+  javascript: msg('JavaScript'),
+  json: msg('JSON'),
+  jsx: msg('JSX'),
+  tsx: msg('TSX'),
+  php: msg('PHP'),
+  powershell: msg('PowerShell'),
+  typescript: msg('TypeScript'),
+  yaml: msg('YAML'),
+  yml: msg('YAML'),
 };
+
+const TEXT_FALLBACK = msg('Text');
 
 interface CodeTabProps {
   children: React.ReactElement<CodeBlockProps> | React.ReactElement<CodeBlockProps>[];
@@ -51,6 +54,7 @@ const showSigninNote = (children: ReactNode) => {
 
 export function CodeTabs({children}: CodeTabProps) {
   const codeBlocks = Array.isArray(children) ? [...children] : [children];
+  const m = useMessages();
 
   // The title is what we use for sorting and also for remembering the
   // selection. If there is no title fall back to the title cased language name
@@ -60,10 +64,10 @@ export function CodeTabs({children}: CodeTabProps) {
       return title;
     }
     if (!language) {
-      return 'Text';
+      return m(TEXT_FALLBACK);
     }
     if (language in HUMAN_LANGUAGE_NAMES) {
-      return HUMAN_LANGUAGE_NAMES[language];
+      return m(HUMAN_LANGUAGE_NAMES[language]);
     }
 
     return language[0].toUpperCase() + language.substring(1);

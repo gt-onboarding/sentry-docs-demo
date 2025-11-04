@@ -3,6 +3,7 @@ import {Hit, Result} from '@sentry-internal/global-search';
 import DOMPurify from 'dompurify';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
+import {T, Var} from 'gt-next';
 
 import {useListKeyboardNavigate} from 'sentry-docs/hooks/useListKeyboardNavigate';
 
@@ -44,7 +45,11 @@ export function SearchResultItems({
         .map((result, i) => (
           <Fragment key={result.site}>
             {showOffsiteResults && (
-              <h4 className={styles['sgs-site-result-heading']}>From {result.name}</h4>
+              <T>
+                <h4 className={styles['sgs-site-result-heading']}>
+                  From <Var>{result.name}</Var>
+                </h4>
+              </T>
             )}
             <ul
               className={`${styles['sgs-hit-list']} ${i === 0 ? '' : styles['sgs-offsite']}`}

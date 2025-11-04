@@ -28,6 +28,7 @@
 import {Fragment, useState} from 'react';
 import {X} from 'react-feather';
 import * as Dialog from '@radix-ui/react-dialog';
+import {useGT} from 'gt-next';
 
 import styles from './lightbox.module.scss';
 
@@ -56,6 +57,7 @@ function LightboxRoot({
   open: controlledOpen,
   closeButton = true,
 }: LightboxProps) {
+  const gt = useGT();
   const [internalOpen, setInternalOpen] = useState(false);
   const isControlled = controlledOpen !== undefined;
   const open = isControlled ? controlledOpen : internalOpen;
@@ -71,7 +73,7 @@ function LightboxRoot({
           {closeButton && (
             <Dialog.Close className="absolute right-4 top-4 z-10 rounded-sm bg-[var(--flame0)] border border-white/20 p-2 text-white opacity-90 transition-all duration-200 hover:opacity-100 hover:bg-[var(--flame1)] hover:border-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white active:scale-95 flex items-center justify-center">
               <X className="h-4 w-4 stroke-[2.5]" />
-              <span className="sr-only">Close</span>
+              <span className="sr-only">{gt('Close')}</span>
             </Dialog.Close>
           )}
           <div className="relative flex items-center justify-center">{content}</div>
@@ -88,12 +90,13 @@ function LightboxTrigger({children, ...props}: LightboxTriggerProps) {
 
 // Close button component
 function LightboxClose({children, className = ''}: LightboxCloseProps) {
+  const gt = useGT();
   return (
     <Dialog.Close className={className}>
       {children || (
         <Fragment>
           <X className="h-4 w-4 stroke-[2.5]" />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">{gt('Close')}</span>
         </Fragment>
       )}
     </Dialog.Close>

@@ -1,6 +1,8 @@
 import {Fragment} from 'react';
 
 import {getDocsRootNode, nodeForPath} from 'sentry-docs/docTree';
+import {msg} from 'gt-next';
+import {getGT} from 'gt-next/server';
 
 import {DynamicNav, toTree} from './dynamicNav';
 import {PlatformSidebar} from './platformSidebar';
@@ -13,45 +15,46 @@ import {docNodeToNavNode, getNavNodes} from './utils';
 // todo: we should probably get rid of this
 const productSidebarItems = [
   {
-    title: 'Account Settings',
+    title: msg('Account Settings'),
     root: 'account',
   },
   {
-    title: 'Organization Settings',
+    title: msg('Organization Settings'),
     root: 'organization',
   },
   {
-    title: 'Product Walkthroughs',
+    title: msg('Product Walkthroughs'),
     root: 'product',
   },
   {
-    title: 'Pricing & Billing',
+    title: msg('Pricing & Billing'),
     root: 'pricing',
   },
   {
-    title: 'Sentry CLI',
+    title: msg('Sentry CLI'),
     root: 'cli',
   },
   {
-    title: 'Sentry API',
+    title: msg('Sentry API'),
     root: 'api',
   },
   {
-    title: 'Security, Legal, & PII',
+    title: msg('Security, Legal, & PII'),
     root: 'security-legal-pii',
   },
   {
-    title: 'Concepts & Reference',
+    title: msg('Concepts & Reference'),
     root: 'concepts',
   },
   {
-    title: 'Documentation Changelog',
+    title: msg('Documentation Changelog'),
     root: 'changelog',
   },
 ];
 
 export async function SidebarNavigation({path}: {path: string[]}) {
   const rootNode = await getDocsRootNode();
+  const gt = await getGT();
   // product docs and platform-redirect page
   if (
     productSidebarItems.some(el => el.root === path[0]) ||
@@ -90,7 +93,7 @@ export async function SidebarNavigation({path}: {path: string[]}) {
         <ul data-sidebar-tree>
           <DynamicNav
             root="contributing"
-            title="Contributing to Docs"
+            title={gt('Contributing to Docs')}
             tree={toTree(contribNodes)}
           />
         </ul>

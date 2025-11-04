@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import {T, Var, useGT} from 'gt-next';
+
 import {Banner} from 'sentry-docs/components/banner';
 import {SentryWordmarkLogo} from 'sentry-docs/components/wordmarkLogo';
 import PlugImage from 'sentry-docs/imgs/api.png';
@@ -20,6 +22,8 @@ import {NavLink, NavLinkProps} from './navlink';
 import {PlatformFilter} from './platformFilter';
 
 export function Home() {
+  const gt = useGT();
+
   return (
     <div className="tw-app">
       <Header pathname="/" searchPlatforms={[]} useStoredSearchPlatforms={false} />
@@ -29,126 +33,138 @@ export function Home() {
       <div className="hero max-w-screen-xl mx-auto px-6 lg:px-8 py-2">
         <div className="flex flex-col md:flex-row gap-4 mx-auto justify-between pt-20">
           <div className="flex flex-col justify-center items-start">
-            <h1 className="text-[40px] font-medium mb-2 leading-[1.2]">
-              Welcome to Sentry Docs
-            </h1>
-            <p className="max-w-[55ch]">
-              Sentry provides end-to-end distributed tracing, enabling developers to
-              identify and debug performance issues and errors across their systems and
-              services.
-            </p>
+            <T>
+              <h1 className="text-[40px] font-medium mb-2 leading-[1.2]">
+                Welcome to Sentry Docs
+              </h1>
+            </T>
+            <T>
+              <p className="max-w-[55ch]">
+                Sentry provides end-to-end distributed tracing, enabling developers to
+                identify and debug performance issues and errors across their systems and
+                services.
+              </p>
+            </T>
           </div>
           <div className="self-center">
             <Image
               src={HeroImage}
-              alt="Sentry's hero image"
+              alt={gt("Sentry's hero image")}
               className="max-h-[200px] w-auto md:max-h-[390px]"
             />
           </div>
         </div>
 
         <PlatformFilter />
-        <h2 className="text-2xl mt-16 mb-6 font-medium">Get to know us</h2>
+        <T>
+          <h2 className="text-2xl mt-16 mb-6 font-medium">Get to know us</h2>
+        </T>
         <div className="flex flex-wrap gap-6">
           <Card
             className="w-full"
             href="/product/"
             image={RocketImage}
-            imageAlt="Rocket image"
-            title="What is Sentry?"
-            description="Application monitoring and debugging software considered “not bad” by 4 million developers."
+            imageAlt={gt('Rocket image')}
+            title={gt('What is Sentry?')}
+            description={gt('Application monitoring and debugging software considered "not bad" by 4 million developers.')}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/organization"
             image={OrganizationImage}
-            imageAlt="Organization image"
-            title="Organization settings"
-            description="Information for setting up your organization's Sentry account."
+            imageAlt={gt('Organization image')}
+            title={gt('Organization settings')}
+            description={gt("Information for setting up your organization's Sentry account.")}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/pricing"
             image={CalculatorImage}
-            imageAlt="Calculator image"
-            title="Pricing & Billing"
-            description="All about our pricing and billing structure."
+            imageAlt={gt('Calculator image')}
+            title={gt('Pricing & Billing')}
+            description={gt('All about our pricing and billing structure.')}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/api"
             image={PlugImage}
-            imageAlt="Plug image"
-            title="API"
-            description="APIs for accessing Sentry programmatically."
+            imageAlt={gt('Plug image')}
+            title={gt('API')}
+            description={gt('APIs for accessing Sentry programmatically.')}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/cli"
             image={TerminalImage}
-            imageAlt="Terminal image"
-            title="CLI"
-            description="How to use ‘sentry-cli’ on the command line."
+            imageAlt={gt('Terminal image')}
+            title={gt('CLI')}
+            description={gt("How to use 'sentry-cli' on the command line.")}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/security-legal-pii"
             image={SecurityImage}
-            imageAlt="Stamped paper image"
-            title="Security, Legal & PII"
-            description="Security, compliance, and data-scrubbing processes."
+            imageAlt={gt('Stamped paper image')}
+            title={gt('Security, Legal & PII')}
+            description={gt('Security, compliance, and data-scrubbing processes.')}
           />
 
           <Card
             className="w-full md:w-[calc(50%-12px)]"
             href="/concepts"
             image={ConceptsImage}
-            imageAlt="Concept and references image"
-            title="Concepts & Reference"
-            description="Core concepts that make Sentry, Sentry."
+            imageAlt={gt('Concept and references image')}
+            title={gt('Concepts & Reference')}
+            description={gt('Core concepts that make Sentry, Sentry.')}
           />
         </div>
-        <h2 className="text-2xl mt-10 mb-6 font-medium">Talk to us</h2>
+        <T>
+          <h2 className="text-2xl mt-10 mb-6 font-medium">Talk to us</h2>
+        </T>
         <div className="flex flex-col md:flex-row gap-6">
           <Card
             className="w-full"
             href="https://discord.com/invite/sentry"
             image={ChatBubble}
-            imageAlt="Chat bubble image"
-            title="Sentry Discord"
-            description="Real talk in real time. Get in it."
+            imageAlt={gt('Chat bubble image')}
+            title={gt('Sentry Discord')}
+            description={gt('Real talk in real time. Get in it.')}
           />
 
           <Card
             className="w-full"
             href="https://sentry.zendesk.com/hc/en-us/"
             image={SupportImage}
-            imageAlt="Support image"
-            title="Support"
-            description="See how we can help."
+            imageAlt={gt('Support image')}
+            title={gt('Support')}
+            description={gt('See how we can help.')}
           />
         </div>
       </div>
       <footer className="mt-12 pb-10 w-full z-50 max-w-7xl mx-auto md:px-6 space-y-4 px-6 lg:px-8">
         <div className="flex md:items-center flex-wrap md:flex-row flex-col md:space-x-2 space-y-2 md:space-y-0 items-start px-3 pt-10 border-t border-gray">
-          <FooterLink href="/security-legal-pii/">Security, Legal & PII</FooterLink>
-          <FooterLink href="/contributing">Contribute</FooterLink>
+          <FooterLink href="/security-legal-pii/">
+            <T>Security, Legal & PII</T>
+          </FooterLink>
+          <FooterLink href="/contributing">
+            <T>Contribute</T>
+          </FooterLink>
           <FooterLink href="https://sentry.zendesk.com/hc/en-us/" external>
-            Support
+            <T>Support</T>
           </FooterLink>
           <FooterLink href="https://develop.sentry.dev/self-hosted/" external>
-            Self-hosting Sentry
+            <T>Self-hosting Sentry</T>
           </FooterLink>
           <FooterLink href="https://develop.sentry.dev/" external>
-            Developer docs
+            <T>Developer docs</T>
           </FooterLink>
           <FooterLink href="https://discord.com/invite/sentry">
-            Sentry discord
+            <T>Sentry discord</T>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -160,10 +176,12 @@ export function Home() {
             </svg>
           </FooterLink>
         </div>
-        <p className="px-3 text-sm">
-          © {new Date().getFullYear()} • Sentry is a registered trademark of Functional
-          Software, Inc.
-        </p>
+        <T>
+          <p className="px-3 text-sm">
+            © <Var>{new Date().getFullYear()}</Var> • Sentry is a registered trademark of Functional
+            Software, Inc.
+          </p>
+        </T>
         <div className="bg-accent-purple max-w-max md:ml-auto ml-2 px-5">
           <SentryWordmarkLogo height={50} fill="#ffffff" />
         </div>

@@ -1,47 +1,52 @@
 import './globals.css';
 
-import {Theme} from '@radix-ui/themes';
-import type {Metadata} from 'next';
-import {Rubik} from 'next/font/google';
+import { Theme } from '@radix-ui/themes';
+import type { Metadata } from 'next';
+import { Rubik } from 'next/font/google';
 import Script from 'next/script';
 import PlausibleProvider from 'next-plausible';
 
-import {ThemeProvider} from 'sentry-docs/components/theme-provider';
+import { ThemeProvider } from 'sentry-docs/components/theme-provider';
+import { getLocale, getGT } from "gt-next/server";
+import { GTProvider } from "gt-next";
 
 const rubik = Rubik({
   weight: ['400', '500', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-rubik'
 });
 
-export const metadata: Metadata = {
-  title: 'Home',
-  icons: {
-    icon:
-      process.env.NODE_ENV === 'production' ? '/favicon.ico' : '/favicon_localhost.png',
-  },
-  openGraph: {
-    images: '/og.png',
-  },
-  other: {
-    'zd-site-verification': 'ocu6mswx6pke3c6qvozr2e',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const gt = await getGT();
+  return {
+    title: gt('Home'),
+    icons: {
+      icon:
+      process.env.NODE_ENV === 'production' ? '/favicon.ico' : '/favicon_localhost.png'
+    },
+    openGraph: {
+      images: '/og.png'
+    },
+    other: {
+      'zd-site-verification': 'ocu6mswx6pke3c6qvozr2e'
+    }
+  };
+}
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default async function RootLayout({ children }: {children: React.ReactNode;}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+  <html suppressHydrationWarning lang={await getLocale()}>
       <head>
         <PlausibleProvider taggedEvents domain="docs.sentry.io,rollup.sentry.io" />
       </head>
-      <body className={rubik.variable} suppressHydrationWarning>
+      <body className={rubik.variable} suppressHydrationWarning><GTProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
+
           <Theme accentColor="iris" grayColor="sand" radius="large" scaling="95%">
             {children}
           </Theme>
@@ -58,9 +63,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           data-font-family="var(--font-rubik)"
           data-modal-disclaimer="Please note: This is a tool that searches publicly available sources. Do not include any sensitive or personal information in your queries. For more on how Sentry handles your data, see our [Privacy Policy](https://sentry.io/privacy/)."
           data-modal-example-questions="How to set up Sentry for Next.js?,What are tracePropagationTargets?"
-          data-user-analytics-cookie-enabled="false"
-        />
-      </body>
+          data-user-analytics-cookie-enabled="false" />
+
+      </GTProvider></body>
     </html>
   );
 }

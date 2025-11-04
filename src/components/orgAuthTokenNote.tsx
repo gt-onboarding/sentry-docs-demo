@@ -2,6 +2,7 @@
 
 import {Fragment, useContext} from 'react';
 import {usePathname} from 'next/navigation';
+import {T} from 'gt-next';
 
 import {Alert} from './alert';
 import {CodeContext} from './codeContext';
@@ -18,27 +19,31 @@ export function OrgAuthTokenNote() {
     <Fragment>
       <SignedInCheck isUserAuthenticated={false}>
         <Alert>
-          You can{' '}
-          <ExternalLink href={orgAuthTokenUrl} target="_blank">
-            manually create an Auth Token
-          </ExternalLink>{' '}
-          or{' '}
-          <ExternalLink href={`https://sentry.io/auth/login/?next=${url}`}>
-            sign in
-          </ExternalLink>{' '}
-          to create a token directly from this page.
+          <T>
+            You can{' '}
+            <ExternalLink href={orgAuthTokenUrl} target="_blank">
+              manually create an Auth Token
+            </ExternalLink>{' '}
+            or{' '}
+            <ExternalLink href={`https://sentry.io/auth/login/?next=${url}`}>
+              sign in
+            </ExternalLink>{' '}
+            to create a token directly from this page.
+          </T>
         </Alert>
       </SignedInCheck>
 
       <SignedInCheck isUserAuthenticated>
         <Alert level="warning">
-          You can{' '}
-          <ExternalLink href={orgAuthTokenUrl} target="_blank">
-            manually create an Auth Token
-          </ExternalLink>{' '}
-          or create a token directly from this page. A created token will only be visible
-          once right after creation - make sure to copy-paste it immediately and DO NOT
-          commit it! We recommend adding it as an environment variable.
+          <T>
+            You can{' '}
+            <ExternalLink href={orgAuthTokenUrl} target="_blank">
+              manually create an Auth Token
+            </ExternalLink>{' '}
+            or create a token directly from this page. A created token will only be visible
+            once right after creation - make sure to copy-paste it immediately and DO NOT
+            commit it! We recommend adding it as an environment variable.
+          </T>
         </Alert>
       </SignedInCheck>
     </Fragment>

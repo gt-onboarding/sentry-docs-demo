@@ -1,5 +1,6 @@
 import {Fragment} from 'react';
 
+import {T, Var, Branch, useGT} from 'gt-next';
 import {getCurrentPlatform} from 'sentry-docs/docTree';
 import {serverContext} from 'sentry-docs/serverContext';
 import {PlatformCategory} from 'sentry-docs/types';
@@ -41,6 +42,7 @@ export function SdkApi({
   language,
   categorySupported = [],
 }: Props) {
+  const gt = useGT();
   const {rootNode, path} = serverContext();
   const platform = getCurrentPlatform(rootNode, path);
   const lang = language || platform?.language || 'typescript';
@@ -49,18 +51,26 @@ export function SdkApi({
 
   return (
     <SdkDefinition name={name} categorySupported={categorySupported}>
-      {showBrowserOnly && <div className="italic text-sm">Only available on Client</div>}
+      {showBrowserOnly && (
+        <T>
+          <div className="italic text-sm">Only available on Client</div>
+        </T>
+      )}
       {showServerLikeOnly && (
-        <div className="italic text-sm">Only available on Server</div>
+        <T>
+          <div className="italic text-sm">Only available on Server</div>
+        </T>
       )}
       <pre className="mt-2 mb-2 text-sm">{codeToJsx(signature, lang)}</pre>
       {availableSince && (
-        <p className="italic">
-          Available Since: <code>{availableSince}</code>
-        </p>
+        <T>
+          <p className="italic">
+            Available Since: <code><Var>{availableSince}</Var></code>
+          </p>
+        </T>
       )}
       {parameters.length ? (
-        <Expandable title="Parameters">
+        <Expandable title={gt('Parameters')}>
           <div className="space-y-3">
             {parameters.map(param => (
               <ApiParameterDef key={param.name} language={lang} {...param} />
@@ -124,7 +134,10 @@ function NestedObject({
     <div>
       <div>
         <code>
-          {name ? name : 'Object'} {'{'}
+          <T>
+            <Branch branch={(!!name).toString()} true={<Var>{name}</Var>} false="Object" />
+          </T>{' '}
+          {'{'}
         </code>
       </div>
 

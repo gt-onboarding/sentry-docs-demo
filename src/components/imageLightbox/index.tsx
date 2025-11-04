@@ -2,6 +2,7 @@
 
 import {useState} from 'react';
 import Image from 'next/image';
+import {useGT} from 'gt-next';
 
 import {Lightbox} from 'sentry-docs/components/lightbox';
 import {isAllowedRemoteImage, isExternalImage} from 'sentry-docs/config/images';
@@ -60,6 +61,7 @@ export function ImageLightbox({
   className,
   ...props
 }: ImageLightboxProps) {
+  const gt = useGT();
   const [open, setOpen] = useState(false);
 
   const dimensions = getValidDimensions(width, height);
@@ -149,7 +151,7 @@ export function ImageLightbox({
         onAuxClick={handleClick}
         onKeyDown={handleKeyDown}
         className="cursor-pointer border-none bg-transparent p-0 block w-full no-underline"
-        aria-label={`View image: ${alt}`}
+        aria-label={gt('View image: {alt}', {alt})}
       >
         {renderImage()}
       </Lightbox.Trigger>

@@ -12,6 +12,7 @@ import {
 } from '@sentry-internal/global-search';
 import {usePathname} from 'next/navigation';
 import algoliaInsights from 'search-insights';
+import {T, Var, useGT} from 'gt-next';
 
 import {useOnClickOutside} from 'sentry-docs/clientUtils';
 import {isDeveloperDocs} from 'sentry-docs/isDeveloperDocs';
@@ -82,6 +83,7 @@ export function Search({
   searchPlatforms = [],
   useStoredSearchPlatforms = true,
 }: Props) {
+  const gt = useGT();
   const ref = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState(``);
   const [results, setResults] = useState([] as Result[]);
@@ -299,8 +301,8 @@ export function Search({
         <div className={styles['input-wrapper']}>
           <input
             type="text"
-            placeholder="Search Docs"
-            aria-label="Search"
+            placeholder={gt('Search Docs')}
+            aria-label={gt('Search')}
             className={styles['search-input']}
             value={query}
             onChange={({target: {value}}) => searchFor(value)}
@@ -312,7 +314,9 @@ export function Search({
           </kbd>
         </div>
         <Fragment>
-          <span className="text-[var(--desatPurple10)] hidden md:inline">or</span>
+          <T>
+            <span className="text-[var(--desatPurple10)] hidden md:inline">or</span>
+          </T>
           <Button
             asChild
             variant="ghost"
@@ -323,7 +327,9 @@ export function Search({
           >
             <div>
               <MagicIcon />
-              <span>Ask AI</span>
+              <T>
+                <span>Ask AI</span>
+              </T>
             </div>
           </Button>
         </Fragment>
@@ -345,13 +351,17 @@ export function Search({
             >
               <MagicIcon className="size-6 text-[var(--sgs-color-hit-highlight)] flex-shrink-0" />
               <div className={styles['sgs-ai-button-content']}>
-                <div className={styles['sgs-ai-button-heading']}>
-                  Ask Sentry about{' '}
-                  <span>{query.length > 30 ? query.slice(0, 30) + '...' : query}</span>
-                </div>
-                <div className={styles['sgs-ai-hint']}>
-                  Get an AI-powered answer to your question
-                </div>
+                <T>
+                  <div className={styles['sgs-ai-button-heading']}>
+                    Ask Sentry about{' '}
+                    <span><Var>{query.length > 30 ? query.slice(0, 30) + '...' : query}</Var></span>
+                  </div>
+                </T>
+                <T>
+                  <div className={styles['sgs-ai-hint']}>
+                    Get an AI-powered answer to your question
+                  </div>
+                </T>
               </div>
               <ArrowRightIcon className="size-5 text-[var(--sgs-color-hit-highlight)] ml-auto flex-shrink-0" />
             </button>
@@ -371,13 +381,15 @@ export function Search({
 
           {!loading && !showOffsiteResults && (
             <div className={styles['sgs-expand-results']}>
-              <button
-                className={styles['sgs-expand-results-button']}
-                onClick={() => setShowOffsiteResults(true)}
-                onMouseOver={() => searchFor(query, {searchAllIndexes: true})}
-              >
-                Search <em>{query}</em> across all Sentry sites
-              </button>
+              <T>
+                <button
+                  className={styles['sgs-expand-results-button']}
+                  onClick={() => setShowOffsiteResults(true)}
+                  onMouseOver={() => searchFor(query, {searchAllIndexes: true})}
+                >
+                  Search <em><Var>{query}</Var></em> across all Sentry sites
+                </button>
+              </T>
             </div>
           )}
         </div>

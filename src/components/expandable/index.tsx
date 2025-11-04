@@ -3,6 +3,7 @@
 import {ReactNode, useCallback, useEffect, useRef, useState} from 'react';
 import {ChevronDownIcon, ChevronRightIcon} from '@radix-ui/react-icons';
 import * as Sentry from '@sentry/nextjs';
+import {useGT} from 'gt-next';
 
 import {usePlausibleEvent} from 'sentry-docs/hooks/usePlausibleEvent';
 
@@ -40,6 +41,7 @@ export function Expandable({
   hideFromMd = false,
 }: Props) {
   const id = permalink ? slugify(title) : undefined;
+  const gt = useGT();
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -175,8 +177,8 @@ export function Expandable({
             onClick={copyContentOnClick}
             type="button" // Important for buttons in summaries
           >
-            {!copied && 'Copy Rules'}
-            {copied && 'Copied!'}
+            {!copied && gt('Copy Rules')}
+            {copied && gt('Copied!')}
           </button>
         )}
       </summary>

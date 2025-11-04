@@ -1,6 +1,7 @@
 import {Fragment, ReactElement, useMemo} from 'react';
 import {bundleMDX} from 'mdx-bundler';
 import {getMDXComponent} from 'mdx-bundler/client';
+import {T, useGT} from 'gt-next';
 
 import {type API} from 'sentry-docs/build/resolveOpenAPI';
 import {mdxComponents} from 'sentry-docs/mdxComponents';
@@ -14,6 +15,7 @@ import {DocPage} from '../docPage';
 import {SmartLink} from '../smartLink';
 
 function Params({params}) {
+  const gt = useGT();
   return (
     <dl className="api-params">
       {params.map(param => {
@@ -30,14 +32,14 @@ function Params({params}) {
                   </em>
                 )}
               </div>
-              {!!param.required && <div className="required">REQUIRED</div>}
+              {!!param.required && <div className="required">{gt('REQUIRED')}</div>}
             </dt>
 
             {!!param.description && (
               <dd>
                 {param.schema?.enum && (
                   <Fragment>
-                    <b>choices</b>:
+                    <b>{gt('choices')}</b>:
                     <ul>
                       <code>
                         {param.schema?.enum.map(e => {
@@ -49,7 +51,7 @@ function Params({params}) {
                 )}
                 {param.schema?.items?.enum && (
                   <Fragment>
-                    <b>choices</b>:
+                    <b>{gt('choices')}</b>:
                     <ul>
                       <code>
                         {param.schema?.items?.enum.map(e => {
@@ -122,6 +124,7 @@ type Props = {
 };
 
 export function ApiPage({api}: Props) {
+  const gt = useGT();
   const frontMatter = {
     title: api.name,
   };
@@ -145,38 +148,40 @@ export function ApiPage({api}: Props) {
 
           {!!api.pathParameters.length && (
             <div className="api-info-row">
-              <h3>Path Parameters</h3>
+              <h3>{gt('Path Parameters')}</h3>
               <Params params={api.pathParameters} />
             </div>
           )}
 
           {!!api.queryParameters.length && (
             <div className="api-info-row">
-              <h3>Query Parameters:</h3>
+              <h3>{gt('Query Parameters:')}</h3>
               <Params params={api.queryParameters} />
             </div>
           )}
 
           {!!api.bodyParameters.length && (
             <div className="api-info-row">
-              <h3>Body Parameters</h3>
+              <h3>{gt('Body Parameters')}</h3>
               <Params params={api.bodyParameters} />
             </div>
           )}
 
           {api.security?.length && (
             <div className="api-info-row">
-              <h3>Scopes</h3>
+              <h3>{gt('Scopes')}</h3>
 
-              <div>
+              <T>
                 <div>
-                  {'You need to '}
-                  <SmartLink to="/api/auth">
-                    authenticate via bearer auth token.
-                  </SmartLink>
+                  <div>
+                    You need to{' '}
+                    <SmartLink to="/api/auth">
+                      authenticate via bearer auth token.
+                    </SmartLink>
+                  </div>
+                  <code>{'<auth_token>'}</code> requires one of the following scopes:
                 </div>
-                <code>{'<auth_token>'}</code> requires one of the following scopes:
-              </div>
+              </T>
 
               <ul>
                 {getScopes(api, 'auth_token').map(scope => (

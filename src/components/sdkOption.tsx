@@ -1,6 +1,7 @@
 import {getCurrentPlatformOrGuide} from 'sentry-docs/docTree';
 import {serverContext} from 'sentry-docs/serverContext';
 import {PlatformCategory} from 'sentry-docs/types';
+import {T, Var, useGT} from 'gt-next';
 
 import {SdkDefinition, SdkDefinitionTable} from './sdkDefinition';
 
@@ -25,6 +26,7 @@ export function SdkOption({
   envVar,
   categorySupported = [],
 }: Props) {
+  const gt = useGT();
   const {showBrowserOnly, showServerLikeOnly} = getPlatformHints(categorySupported);
   const {rootNode, path} = serverContext();
   const currentPlatformOrGuide = getCurrentPlatformOrGuide(rootNode, path);
@@ -46,19 +48,19 @@ export function SdkOption({
     <SdkDefinition name={name} categorySupported={categorySupported}>
       <SdkDefinitionTable>
         {availableSince && (
-          <OptionDefRow label="Available since" value={availableSince} />
+          <OptionDefRow label={gt('Available since')} value={availableSince} />
         )}
-        {type && <OptionDefRow label="Type" value={type} />}
+        {type && <OptionDefRow label={gt('Type')} value={type} />}
         {defaultValue && (
-          <OptionDefRow label="Default" value={defaultValue} note={defaultNote} />
+          <OptionDefRow label={gt('Default')} value={defaultValue} note={defaultNote} />
         )}
 
         {shouldShowEnvVar() && envVar && (
-          <OptionDefRow label="ENV Variable" value={envVar} />
+          <OptionDefRow label={gt('ENV Variable')} value={envVar} />
         )}
 
-        {showBrowserOnly && <OptionDefRow label="Only available on" value="Client" />}
-        {showServerLikeOnly && <OptionDefRow label="Only available on" value="Server" />}
+        {showBrowserOnly && <OptionDefRow label={gt('Only available on')} value={gt('Client')} />}
+        {showServerLikeOnly && <OptionDefRow label={gt('Only available on')} value={gt('Server')} />}
       </SdkDefinitionTable>
 
       {children}
@@ -80,7 +82,13 @@ function OptionDefRow({
       <th>{label}</th>
       <td>
         <code>{value}</code>
-        {note && <small> ({note})</small>}
+        {note && (
+          <T>
+            <small>
+              {' '}(<Var>{note}</Var>)
+            </small>
+          </T>
+        )}
       </td>
     </tr>
   );

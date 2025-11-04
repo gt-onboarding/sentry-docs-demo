@@ -3,10 +3,12 @@ import {Fragment} from 'react';
 import {MoonIcon, SunIcon} from '@radix-ui/react-icons';
 import {IconButton, Tooltip} from '@radix-ui/themes';
 import {useTheme} from 'next-themes';
+import {useGT} from 'gt-next';
 
 export function ThemeToggle({
   ...props
 }: React.ComponentPropsWithoutRef<typeof IconButton>) {
+  const gt = useGT();
   const {theme, systemTheme, setTheme} = useTheme();
 
   return (
@@ -22,7 +24,7 @@ export function ThemeToggle({
      }
    `}</style>
 
-      <Tooltip className="radix-themes-custom-fonts" content="Toggle theme">
+      <Tooltip className="radix-themes-custom-fonts" content={gt('Toggle theme')}>
         <IconButton
           size="3"
           variant="ghost"

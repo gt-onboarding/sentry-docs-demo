@@ -5,6 +5,7 @@ import {createPortal} from 'react-dom';
 import {usePopper} from 'react-popper';
 import {AnimatePresence} from 'framer-motion';
 import {useTheme} from 'next-themes';
+import {useGT} from 'gt-next';
 
 import {useOnClickOutside} from 'sentry-docs/clientUtils';
 import {useIsMounted} from 'sentry-docs/hooks/isMounted';
@@ -43,6 +44,7 @@ export function OrgAuthTokenCreator() {
   const [isAnimating, setIsAnimating] = useState(false);
   const {resolvedTheme: theme} = useTheme();
   const isDarkMode = theme === 'dark';
+  const gt = useGT();
 
   const {isMounted} = useIsMounted();
 
@@ -115,16 +117,16 @@ export function OrgAuthTokenCreator() {
   }
 
   if (tokenState.status === 'error') {
-    return <Fragment>There was an error while generating your token.</Fragment>;
+    return <Fragment>{gt('There was an error while generating your token.')}</Fragment>;
   }
 
   if (tokenState.status === 'loading') {
-    return <Fragment>Generating token...</Fragment>;
+    return <Fragment>{gt('Generating token...')}</Fragment>;
   }
 
   const selector = isOpen && (
     <PositionWrapper style={styles.popper} ref={setDropdownEl} {...attributes.popper}>
-      <DropdownHeader>Select an organization:</DropdownHeader>
+      <DropdownHeader>{gt('Select an organization:')}</DropdownHeader>
       <AnimatedContainer>
         <Dropdown dark={isDarkMode}>
           <Arrow
@@ -168,7 +170,7 @@ export function OrgAuthTokenCreator() {
       <KeywordDropdown
         ref={setReferenceEl}
         role="button"
-        title="Click to generate token (DO NOT commit)"
+        title={gt('Click to generate token (DO NOT commit)')}
         tabIndex={0}
         onClick={() => {
           handlePress();
@@ -192,7 +194,7 @@ export function OrgAuthTokenCreator() {
               onAnimationStart={() => setIsAnimating(true)}
               onAnimationComplete={() => setIsAnimating(false)}
             >
-              Click to generate token (DO NOT commit)
+              {gt('Click to generate token (DO NOT commit)')}
             </Keyword>
           </AnimatePresence>
         </span>

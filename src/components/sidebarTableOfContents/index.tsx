@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
+import {T} from 'gt-next';
 
 import {isNotNil} from 'sentry-docs/utils';
 
@@ -189,7 +190,11 @@ export function SidebarTableOfContents() {
 
   return (
     <div className={styles['doc-toc']}>
-      {!!tocItems.length && <h2 className={styles['doc-toc-title']}>On this page</h2>}
+      {!!tocItems.length && (
+        <T>
+          <h2 className={styles['doc-toc-title']}>On this page</h2>
+        </T>
+      )}
       <ul className={styles['section-nav']}>{recursiveRender(buildTocTree(tocItems))}</ul>
     </div>
   );

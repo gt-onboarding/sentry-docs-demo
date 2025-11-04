@@ -1,6 +1,7 @@
 import 'server-only';
 
 import {cache} from 'react';
+import {msg} from 'gt-next';
 
 import {DocNode} from 'sentry-docs/docTree';
 
@@ -17,7 +18,7 @@ export const serverContext = cache(() => {
       path: '/',
       slug: '',
       frontmatter: {
-        title: 'Home',
+        title: msg('Home'),
         slug: 'home',
       },
       children: [],

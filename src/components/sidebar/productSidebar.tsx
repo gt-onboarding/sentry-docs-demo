@@ -1,4 +1,5 @@
 import {nodeForPath} from 'sentry-docs/docTree';
+import {msg, useMessages} from 'gt-next';
 
 import {DynamicNav, toTree} from './dynamicNav';
 import {SidebarLink, SidebarSeparator} from './sidebarLink';
@@ -6,6 +7,7 @@ import {NavNode, ProductSidebarProps} from './types';
 import {docNodeToNavNode, getNavNodes} from './utils';
 
 export function ProductSidebar({rootNode, items}: ProductSidebarProps) {
+  const m = useMessages();
   const itemTree = (item: string) => {
     const node = nodeForPath(rootNode, item);
     if (!node) {
@@ -25,7 +27,7 @@ export function ProductSidebar({rootNode, items}: ProductSidebarProps) {
               <DynamicNav
                 key={item.root}
                 root={item.root}
-                title={item.title}
+                title={m(item.title)}
                 tree={tree}
                 collapsible
               />
@@ -37,16 +39,16 @@ export function ProductSidebar({rootNode, items}: ProductSidebarProps) {
       <ul data-sidebar-tree>
         <li className="mb-3" data-sidebar-branch>
           <ul data-sidebar-tree>
-            <SidebarLink href="https://about.codecov.io/" title="Codecov" />
-            <SidebarLink href="https://discord.gg/sentry" title="Discord" />
-            <SidebarLink href="https://sentry.zendesk.com/hc/en-us/" title="Support" />
+            <SidebarLink href="https://about.codecov.io/" title={m(msg('Codecov'))} />
+            <SidebarLink href="https://discord.gg/sentry" title={m(msg('Discord'))} />
+            <SidebarLink href="https://sentry.zendesk.com/hc/en-us/" title={m(msg('Support'))} />
             <SidebarLink
               href="https://develop.sentry.dev/self-hosted/"
-              title="Self-Hosting Sentry"
+              title={m(msg('Self-Hosting Sentry'))}
             />
             <SidebarLink
               href="https://develop.sentry.dev"
-              title="Developer Documentation"
+              title={m(msg('Developer Documentation'))}
             />
           </ul>
         </li>
