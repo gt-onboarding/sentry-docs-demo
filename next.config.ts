@@ -4,6 +4,8 @@ import {withSentryConfig} from '@sentry/nextjs';
 import {REMOTE_IMAGE_PATTERNS} from './src/config/images';
 import {redirects} from './redirects.js';
 
+import { withGTConfig } from 'gt-next/config';
+
 const outputFileTracingExcludes = process.env.NEXT_PUBLIC_DEVELOPER_DOCS
   ? {
       '/**/*': [
@@ -91,7 +93,7 @@ const nextConfig = {
   },
 };
 
-module.exports = withSentryConfig(nextConfig, {
+const sentryConfig = withSentryConfig(nextConfig, {
   org: 'sentry',
   project: process.env.NEXT_PUBLIC_DEVELOPER_DOCS ? 'develop-docs' : 'docs',
 
@@ -122,3 +124,7 @@ module.exports = withSentryConfig(nextConfig, {
     thirdPartyOriginStackFrames: true,
   },
 });
+
+export default withGTConfig(sentryConfig, {
+  defaultLocale: 'en'
+})

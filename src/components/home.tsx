@@ -19,7 +19,11 @@ import {Header} from './header';
 import {NavLink, NavLinkProps} from './navlink';
 import {PlatformFilter} from './platformFilter';
 
+import { T } from 'gt-next/client'
+import { useGT } from 'gt-next';
+
 export function Home() {
+  const gt = useGT();
   return (
     <div className="tw-app">
       <Header pathname="/" searchPlatforms={[]} useStoredSearchPlatforms={false} />
@@ -28,16 +32,18 @@ export function Home() {
       </div>
       <div className="hero max-w-screen-xl mx-auto px-6 lg:px-8 py-2">
         <div className="flex flex-col md:flex-row gap-4 mx-auto justify-between pt-20">
-          <div className="flex flex-col justify-center items-start">
-            <h1 className="text-[40px] font-medium mb-2 leading-[1.2]">
-              Welcome to Sentry Docs
-            </h1>
-            <p className="max-w-[55ch]">
-              Sentry provides end-to-end distributed tracing, enabling developers to
-              identify and debug performance issues and errors across their systems and
-              services.
-            </p>
-          </div>
+          <T>
+            <div className="flex flex-col justify-center items-start">
+              <h1 className="text-[40px] font-medium mb-2 leading-[1.2]">
+                Welcome to Sentry Docs
+              </h1>
+              <p className="max-w-[55ch]">
+                Sentry provides end-to-end distributed tracing, enabling developers to
+                identify and debug performance issues and errors across their systems and
+                services.
+              </p>
+            </div>
+          </T>
           <div className="self-center">
             <Image
               src={HeroImage}
@@ -48,7 +54,9 @@ export function Home() {
         </div>
 
         <PlatformFilter />
-        <h2 className="text-2xl mt-16 mb-6 font-medium">Get to know us</h2>
+        <T>
+          <h2 className="text-2xl mt-16 mb-6 font-medium">Get to know us</h2>
+        </T>
         <div className="flex flex-wrap gap-6">
           <Card
             className="w-full"
@@ -64,8 +72,8 @@ export function Home() {
             href="/organization"
             image={OrganizationImage}
             imageAlt="Organization image"
-            title="Organization settings"
-            description="Information for setting up your organization's Sentry account."
+            title={gt("Organization settings")}
+            description={gt("Information for setting up your organization's Sentry account.")}
           />
 
           <Card
@@ -113,7 +121,9 @@ export function Home() {
             description="Core concepts that make Sentry, Sentry."
           />
         </div>
-        <h2 className="text-2xl mt-10 mb-6 font-medium">Talk to us</h2>
+        <T>
+          <h2 className="text-2xl mt-10 mb-6 font-medium">Talk to us</h2>
+        </T>
         <div className="flex flex-col md:flex-row gap-6">
           <Card
             className="w-full"
