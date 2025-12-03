@@ -183,7 +183,7 @@ const handleRedirects = (request: NextRequest) => {
   }
 
   // If we don't find an exact match, we try to look for a :guide placeholder
-  const guidePlaceholer = '/guides/:guide/';
+  const guidePlaceholder = '/guides/:guide/';
   const guideRegex = /\/guides\/(\w+)\//g;
   const match = guideRegex.exec(urlPath);
 
@@ -191,13 +191,13 @@ const handleRedirects = (request: NextRequest) => {
     return undefined;
   }
 
-  const pathWithPlaceholder = urlPath.replace(guideRegex, guidePlaceholer);
+  const pathWithPlaceholder = urlPath.replace(guideRegex, guidePlaceholder);
   const guide = match[1];
 
   const redirectToGuide = redirectMap.get(pathWithPlaceholder);
   if (redirectToGuide) {
     const finalRedirectToPath = redirectToGuide.replace(
-      guidePlaceholer,
+      guidePlaceholder,
       `/guides/${guide}/`
     );
 
@@ -1785,10 +1785,6 @@ const USER_DOCS_REDIRECTS: Redirect[] = [
     to: '/concepts/key-terms/tracing/span-metrics/',
   },
   {
-    from: '/platforms/react-native/metrics/',
-    to: '/concepts/key-terms/tracing/span-metrics/',
-  },
-  {
     from: '/platforms/java/metrics/',
     to: '/concepts/key-terms/tracing/span-metrics/',
   },
@@ -1802,10 +1798,6 @@ const USER_DOCS_REDIRECTS: Redirect[] = [
   },
   {
     from: '/platforms/unity/metrics/',
-    to: '/concepts/key-terms/tracing/span-metrics/',
-  },
-  {
-    from: '/platforms/php/metrics/',
     to: '/concepts/key-terms/tracing/span-metrics/',
   },
   {
