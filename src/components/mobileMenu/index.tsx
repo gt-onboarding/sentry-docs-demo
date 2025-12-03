@@ -2,7 +2,7 @@
 import {TriangleRightIcon} from '@radix-ui/react-icons';
 import * as Popover from '@radix-ui/react-popover';
 import {Box, Button, Theme} from '@radix-ui/themes';
-import {T} from 'gt-next';
+import {T} from 'gt-next/client';
 import Link from 'next/link';
 
 import {Search} from 'sentry-docs/components/search';

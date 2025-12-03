@@ -3,7 +3,7 @@ import {useMemo, useState} from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import {TriangleRightIcon} from '@radix-ui/react-icons';
 import classNames from 'classnames';
-import {T} from 'gt-next';
+import {T} from 'gt-next/client';
 import {matchSorter, rankings} from 'match-sorter';
 import Link from 'next/link';
 

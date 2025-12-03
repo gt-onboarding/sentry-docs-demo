@@ -28,7 +28,7 @@
  */
 
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {T} from 'gt-next';
+import {T} from 'gt-next/client';
 
 import styles from './style.module.scss';
 

@@ -5,7 +5,7 @@ import React, {ReactNode, useContext, useEffect, useReducer, useState} from 'rea
 import {QuestionMarkCircledIcon} from '@radix-ui/react-icons';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import {Button, Checkbox, Theme} from '@radix-ui/themes';
-import {msg, T, useMessages} from 'gt-next';
+import {msg, T, useMessages} from 'gt-next/client';
 
 import styles from './styles.module.scss';
 

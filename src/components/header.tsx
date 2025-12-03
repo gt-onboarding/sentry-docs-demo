@@ -1,7 +1,7 @@
 'use client';
 
 import {HamburgerMenuIcon} from '@radix-ui/react-icons';
-import {T} from 'gt-next';
+import {T} from 'gt-next/client';
 import Image from 'next/image';
 import Link from 'next/link';
 
