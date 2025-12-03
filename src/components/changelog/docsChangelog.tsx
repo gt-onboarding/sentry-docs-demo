@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {T, useGT} from 'gt-next/client';
+import {T, useGT} from 'gt-next';
 
 interface ChangelogEntry {
   author: string;

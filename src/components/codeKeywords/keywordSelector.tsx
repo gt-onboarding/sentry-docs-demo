@@ -4,7 +4,7 @@ import {ComponentProps, Fragment, useContext, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {usePopper} from 'react-popper';
 import {AnimatePresence} from 'framer-motion';
-import {useGT} from 'gt-next/client';
+import {useGT} from 'gt-next';
 import {useTheme} from 'next-themes';
 
 import {useOnClickOutside} from 'sentry-docs/clientUtils';

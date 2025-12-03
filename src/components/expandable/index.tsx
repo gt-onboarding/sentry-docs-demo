@@ -10,7 +10,7 @@ import {
 } from 'react';
 import {ChevronDownIcon, ChevronRightIcon} from '@radix-ui/react-icons';
 import * as Sentry from '@sentry/nextjs';
-import {useGT} from 'gt-next/client';
+import {useGT} from 'gt-next';
 
 import {usePlausibleEvent} from 'sentry-docs/hooks/usePlausibleEvent';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {T} from 'gt-next/client';
+import {T} from 'gt-next';
 
 import {isNotNil} from 'sentry-docs/utils';
 

@@ -10,7 +10,7 @@ import {
   SentryGlobalSearch,
   standardSDKSlug,
 } from '@sentry-internal/global-search';
-import {T, useGT, Var} from 'gt-next/client';
+import {T, useGT, Var} from 'gt-next';
 import {usePathname} from 'next/navigation';
 import algoliaInsights from 'search-insights';
 

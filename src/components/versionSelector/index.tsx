@@ -2,7 +2,7 @@
 import {useCallback, useEffect, useState} from 'react';
 import {ChevronDownIcon} from '@radix-ui/react-icons';
 import * as RadixSelect from '@radix-ui/react-select';
-import {T, useGT, Var} from 'gt-next/client';
+import {T, useGT, Var} from 'gt-next';
 import {usePathname, useRouter} from 'next/navigation';
 
 import {stripTrailingSlash} from 'sentry-docs/utils';
