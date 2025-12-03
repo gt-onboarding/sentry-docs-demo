@@ -1,5 +1,4 @@
 import matter from 'gray-matter';
-import {getDefaultLocale} from 'gt-next/server';
 import {access, readFile} from 'node:fs/promises';
 import nodePath from 'node:path';
 
@@ -34,6 +33,19 @@ function slugWithoutIndex(slug: string): string[] {
   return parts;
 }
 
+function getDefaultLocaleSafe(): string | undefined {
+  try {
+    // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
+    const gtServer = require('gt-next/server');
+    if (typeof gtServer.getDefaultLocale === 'function') {
+      return gtServer.getDefaultLocale();
+    }
+  } catch (error) {
+    // ignore: happens when the server-only entrypoint is unavailable (e.g. build scripts)
+  }
+  return 'en';
+}
+
 const docsRootNodeCache = new Map<string, Promise<DocNode>>();
 
 export function getDocsRootNode(): Promise<DocNode> {
@@ -54,7 +66,7 @@ function reconstructParentReferences(node: DocNode, parent?: DocNode): void {
 }
 
 async function getDocsRootNodeCached(locale: string): Promise<DocNode> {
-  const defaultLocale = getDefaultLocale();
+  const defaultLocale = getDefaultLocaleSafe();
 
   // In development, scan filesystem for hot reloading
   // For non-default locales, also generate dynamically so localized overlays are applied
@@ -113,7 +125,7 @@ export async function getDocsRootNodeUncached(locale?: string): Promise<DocNode>
     : getDocsFrontMatter());
 
   // Overlay localized frontmatter (titles, sidebar titles, description) for non-default locales
-  const defaultLocale = getDefaultLocale();
+  const defaultLocale = getDefaultLocaleSafe();
   if (targetLocale && defaultLocale && targetLocale !== defaultLocale) {
     const localized = await overlayLocalizedFrontmatter(baseFrontmatter, targetLocale);
     return frontmatterToTree(localized);
