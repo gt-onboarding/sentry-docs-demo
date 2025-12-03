@@ -1,5 +1,6 @@
 {
   "$schema": "https://assets.gtx.dev/config-schema.json",
+  "modelProvider": "anthropic",
   "files": {
     "mdx": {
       "include": [

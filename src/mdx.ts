@@ -1,5 +1,4 @@
 import matter from 'gray-matter';
-import {getDefaultLocale, getLocale, getLocales} from 'gt-next/server';
 import {s} from 'hastscript';
 import yaml from 'js-yaml';
 import {bundleMDX} from 'mdx-bundler';
@@ -45,6 +44,34 @@ import {serverContext} from './serverContext';
 import {FrontMatter, Platform, PlatformConfig} from './types';
 import {isNotNil} from './utils';
 import {isVersioned, VERSION_INDICATOR} from './versioning';
+
+type GTServerAPI = {
+  getDefaultLocale?: () => string | Promise<string>;
+  getLocale?: () => Promise<string>;
+  getLocales?: () => string[];
+};
+
+// Lazy load gt-next/server to avoid crashing build-time scripts where it pulls in
+// the `server-only` package.
+let getDefaultLocale: () => string | Promise<string> = () => 'en';
+let getLocale: () => Promise<string> = () => Promise.resolve('');
+let getLocales: () => string[] = () => ['en'];
+
+try {
+  // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
+  const gtServer: GTServerAPI = require('gt-next/server');
+  if (typeof gtServer.getDefaultLocale === 'function') {
+    getDefaultLocale = gtServer.getDefaultLocale;
+  }
+  if (typeof gtServer.getLocale === 'function') {
+    getLocale = gtServer.getLocale;
+  }
+  if (typeof gtServer.getLocales === 'function') {
+    getLocales = gtServer.getLocales;
+  }
+} catch {
+  // ignore – falls back to defaults in non-Next build contexts
+}
 
 type SlugFile = {
   frontMatter: Platform & {slug: string};
