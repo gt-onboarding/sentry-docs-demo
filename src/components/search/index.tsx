@@ -416,7 +416,7 @@ export function Search({
                     searchFor(query, {searchAllIndexes: true, skipMetrics: true})
                   }
                 >
-                  Search <em>{query}</em> across all Sentry sites
+                  Search <em><Var>{query}</Var></em> across all Sentry sites
                 </button>
               </div>
             </T>
