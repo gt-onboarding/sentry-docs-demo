@@ -1,3 +1,4 @@
+import {T} from 'gt-next';
 import Link from 'next/link';
 
 import styles from './style.module.scss';
@@ -40,7 +41,11 @@ export function SidebarLink({
       <div className={styles['sidebar-link-content']}>
         <span>{title}</span>
         {beta && <span className={styles['beta-badge']}>BETA</span>}
-        {isNew && <span className={styles['new-badge']}>NEW</span>}
+        {isNew && (
+          <T>
+            <span className={styles['new-badge']}>NEW</span>
+          </T>
+        )}
       </div>
       {collapsible && <NavChevron direction={isActive ? 'down' : 'right'} />}
     </LinkComponent>
